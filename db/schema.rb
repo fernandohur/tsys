@@ -11,11 +11,39 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130224220242) do
+ActiveRecord::Schema.define(:version => 20130226045438) do
+
+  create_table "activities", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "anotations", :force => true do |t|
+    t.string   "id_source"
+    t.string   "texto"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "meeting_notes", :force => true do |t|
+    t.string   "text"
+    t.integer  "id_meeting"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "notes", :force => true do |t|
     t.text     "noteText"
     t.integer  "source_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "products", :force => true do |t|
+    t.string   "name"
+    t.string   "desc"
+    t.string   "file_url"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
