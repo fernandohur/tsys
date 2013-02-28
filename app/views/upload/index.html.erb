@@ -1,0 +1,4 @@
+<%= form_tag({:action => "uploadFile"}, :multipart => true) do %>
+    <%= file_field_tag 'dataFile' %>
+    <%= submit_tag "submit" , :class=>"btn" %>
+<% end %>

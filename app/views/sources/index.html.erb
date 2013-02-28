@@ -1,0 +1,11 @@
+<%= render_title "Fuentes" , "Aqui puedes ver las fuentes que has subido" %>
+
+<div class="container">
+  <% @sources.each do |s|  %>
+      <%=  render_source s %>
+  <% end %>
+
+  <%= link_to "Añadir fuente", new_source_path, :class=>"btn btn-primary" %>
+
+</div>
+

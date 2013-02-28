@@ -1,0 +1,16 @@
+<div class="well">
+  <h4><%= source.name %></h4>
+  <p><%= source.descripccion %></p>
+  <%= link_to source_path(source),:class=>"btn btn-success" do %>
+      <i class="icon-eye-open"> view</i>
+  <% end %>
+  <%= link_to edit_source_path(source),:class=>"btn btn-info" do %>
+      <i class="icon-edit"> edit</i>
+  <% end %>
+  <%= link_to edit_source_path(source),:class=>"btn btn-info" do %>
+      <i class="icon-pencil"> add note</i>
+  <% end %>
+  <%= link_to source, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"btn btn-danger" do %>
+      <i class="icon-remove"> remove</i>
+  <% end %>
+</div>

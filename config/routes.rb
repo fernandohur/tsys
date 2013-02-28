@@ -1,4 +1,21 @@
 Tsys::Application.routes.draw do
+
+  get "notes/new"
+
+  get "notes/index"
+
+  get "notes/destroy"
+
+  get "notes/create"
+
+  get "upload/index"
+
+  post "upload/uploadFile"
+
+  resources :sources do
+    resources :notes
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
