@@ -11,10 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130226045438) do
+ActiveRecord::Schema.define(:version => 20130227184327) do
 
   create_table "activities", :force => true do |t|
     t.string   "name"
+    t.integer  "thesis_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -42,16 +43,22 @@ ActiveRecord::Schema.define(:version => 20130226045438) do
 
   create_table "products", :force => true do |t|
     t.string   "name"
-    t.string   "desc"
     t.string   "file_url"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "activity_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "professors", :force => true do |t|
     t.string   "nombre"
     t.string   "username"
     t.string   "password"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "somethings", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -71,6 +78,13 @@ ActiveRecord::Schema.define(:version => 20130226045438) do
     t.string   "username"
     t.string   "password"
     t.integer  "thesis_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "tests", :force => true do |t|
+    t.string   "name"
+    t.integer  "name2"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

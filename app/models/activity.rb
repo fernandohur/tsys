@@ -1,5 +1,5 @@
 class Activity < ActiveRecord::Base
-  attr_accessible :name
-  validates :name, :uniqueness => true
-  has_many :products
+  attr_accessible :name, :thesis_id
+  belongs_to :thesis
+  has_one :product
 end

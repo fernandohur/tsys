@@ -1,5 +1,4 @@
 class Product < ActiveRecord::Base
-  attr_accessible :desc, :file_url, :name
-  validates :file_url, :uniqueness => true
-  has_one :activity
+  attr_accessible :activity_id, :file_url, :name
+  belongs_to :activity
 end
