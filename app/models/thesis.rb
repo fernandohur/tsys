@@ -4,5 +4,6 @@ class Thesis < ActiveRecord::Base
   validates :name, :length => { :maximum => 30 }
   has_many :sources
   has_many :activities
+  has_many :meetings
   belongs_to :student
 end
