@@ -12,14 +12,14 @@
           </ul>
         </div>
     <% end %>
-    <%= f.label :dateMeeting %>
+    <%= f.label :"Date Meeting"%>
     <%= f.date_select :dateMeeting, {:order => [:month, :day, :year],:prompt => true, :start_year => Time.now.year, :end_year => 2019} %>
-    <%= f.label :noteMeeting %>
-    <%= f.text_area :noteMeeting , :size => "40x20", %>
-    <%= f.label :thesis_id %>
+    <%= f.label :"Note Meeting" %>
+    <%= f.text_area :noteMeeting, :size => "5x4" %>
+    <%= f.label :"Thesis id" %>
     <%= f.number_field :thesis_id%>
     <div class="actions">
-      <%= f.submit %>
+      <%= f.submit :bttnCreateMeeting%>
     </div>
 
 <% end %>

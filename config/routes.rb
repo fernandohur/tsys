@@ -1,6 +1,7 @@
 Tsys::Application.routes.draw do
   resources :theses
   resources :meetings
+  match 'newMeeting' =>'meeting#new'
 
 
   get "static/home"
