@@ -5,11 +5,11 @@ Given /^I am on the create meeting page$/ do
 end
 
 When /^I enter the note meeting of "(.*?)"$/ do |arg1|
-  fill_in "notemeeting", :with => arg1
+  fill_in "meeting_noteMeeting", :with => arg1
 end
 
 When /^I click on submit$/ do
-  click_button("bttnCreateMeeting")
+  click_button("Create Meeting")
 end
 
 Then /^I should see "(.*?)"$/ do |arg1|
