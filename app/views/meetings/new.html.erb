@@ -1,31 +1,25 @@
-<h1>Ingresa una reunion</h1>
+<h1>Create meeting</h1>
 
 <%= form_for(@meeting) do |f| %>
     <% if @meeting.errors.any? %>
         <div id="error_explanation">
-          <h2><%= pluralize(@meeting.errors.count, "error") %> prohibited this book from being saved:</h2>
+          <h2><%= pluralize(@meeting.errors.count, "error") %> prohibited this meeting from being saved:</h2>
 
           <ul>
-            <% @book.errors.full_messages.each do |msg| %>
+            <% @meeting.errors.full_messages.each do |msg| %>
                 <li><%= msg %></li>
             <% end %>
           </ul>
         </div>
     <% end %>
-
-    <div class="field">
-      <%= f.label :title %><br />
-      <%= f.text_field :title %>
-    </div>
-    <div class="field">
-      <%= f.label :author %><br />
-      <%= f.text_field :author %>
-    </div>
-    <div class="field">
-      <%= f.label :isbn %><br />
-      <%= f.text_field :isbn %>
-    </div>
+    <%= f.label :dateMeeting %>
+    <%= f.date_select :dateMeeting, {:order => [:month, :day, :year],:prompt => true, :start_year => Time.now.year, :end_year => 2019} %>
+    <%= f.label :noteMeeting %>
+    <%= f.text_area :noteMeeting , :size => "40x20", %>
+    <%= f.label :thesis_id %>
+    <%= f.number_field :thesis_id%>
     <div class="actions">
       <%= f.submit %>
     </div>
+
 <% end %>
