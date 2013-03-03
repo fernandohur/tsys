@@ -5,6 +5,7 @@ Tsys::Application.routes.draw do
     resources :notes
   end
 
+  resources :student
   resources :theses
   resources :meetings
   match 'newMeeting' =>'meeting#new'
