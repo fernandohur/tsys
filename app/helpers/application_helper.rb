@@ -4,4 +4,6 @@ module ApplicationHelper
     render :partial => "partials/legend", :locals => {:title=>title, :subtitle=>subtitle}
   end
 
+
+
 end

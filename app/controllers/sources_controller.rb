@@ -13,16 +13,21 @@ class SourcesController < ApplicationController
   end
 
   def create
-    @source = Source.new(params[:source])
-    puts params
-    puts " asdasd==============================================="
+    @source = Source.new
+
+    @source.descripccion = params[:descripccion]
+    @source.name = params[:name]
+    @source.thesis_id = params[:thesis_id]
+
     uploaded_io = params[:dataFile]
 
     path = Rails.root.join('public', 'uploads', uploaded_io.original_filename);
     File.open(path, 'w:ASCII-8BIT') do |file|
       file.write(uploaded_io.read)
+
     end
-    @source.path=path
+    realPath = File.absolute_path(path).split("public/")[1]
+    @source.path= realPath
     @source.save
     flash[:notice]="la fuente fue exitosamente creada"
     redirect_to @source

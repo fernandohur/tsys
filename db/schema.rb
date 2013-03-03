@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130228150723) do
+ActiveRecord::Schema.define(:version => 20130303160806) do
 
   create_table "anotations", :force => true do |t|
     t.string   "id_source"
@@ -49,7 +49,6 @@ ActiveRecord::Schema.define(:version => 20130228150723) do
 
   create_table "sources", :force => true do |t|
     t.string   "name"
-    t.string   "dir"
     t.string   "path"
     t.string   "descripccion"
     t.integer  "thesis_id"

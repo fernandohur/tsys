@@ -2,24 +2,28 @@
 <div class="container">
 
   <%= form_tag( {:action => "index"},:multipart=>"true",:class => "form-horizontal") do  %>
+
+
+      <div class="control-group">
+        <%= label_tag :name,nil ,:class=>"control-label",:for=>:name %>
+        <div class="controls">
+          <%= text_field_tag :name %>
+        </div>
+      </div>
+
+
       <div class="control-group">
         <%= label_tag :descripccion,nil , :class=>"control-label", :for=>:descripccion %>
         <div class="controls">
           <%= text_area_tag :descripccion,nil,:size=>"5x5", :id=>:descripccion%>
         </div>
       </div>
-      <div class="control-group">
-        <%= label_tag :dir,nil ,:class=>"control-label",:for=>:dir%>
-        <div class="controls">
-          <%= text_field_tag :dir %>
-        </div>
 
-      </div>
-      <%= file_field_tag 'dataFile' %>
+
       <div class="control-group">
         <%= label_tag :path,nil ,:class=>"control-label",:for=>:path%>
         <div class="controls">
-          <%= text_field_tag :path %>
+          <%= file_field_tag 'dataFile' %>
         </div>
       </div>
 

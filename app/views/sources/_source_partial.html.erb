@@ -7,10 +7,10 @@
   <%= link_to edit_source_path(source),:class=>"btn btn-info" do %>
       <i class="icon-edit"> edit</i>
   <% end %>
-  <%= link_to edit_source_path(source),:class=>"btn btn-info" do %>
-      <i class="icon-pencil"> add note</i>
+  <%= link_to source_notes_path(source),:class=>"btn btn-info" do %>
+      <i class="icon-pencil"> notes</i>
   <% end %>
-  <%= link_to source, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"btn btn-danger" do %>
-      <i class="icon-remove"> remove</i>
+  <%= link_to source, method: :delete, :class=>"btn btn-danger" do %>
+      <i class="icon-trash"> remove</i>
   <% end %>
 </div>
