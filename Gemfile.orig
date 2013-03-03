@@ -28,7 +28,7 @@ end
 gem 'jquery-rails'
 gem 'less-rails'
 
-
+<<<<<<< HEAD
 group :test do
   gem 'cucumber-rails'
   gem 'capybara'
@@ -36,7 +36,13 @@ group :test do
   gem 'database_cleaner'
 end
 
-
+=======
+group :development, :test do
+  gem "rspec-rails"
+  gem 'cucumber-rails', :require => false
+  gem 'database_cleaner'
+  end
+>>>>>>> d659804ddf80e9aecac3ea715319364d3b206a32
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

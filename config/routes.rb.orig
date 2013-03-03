@@ -1,10 +1,10 @@
 Tsys::Application.routes.draw do
-
+<<<<<<< HEAD
 
   resources :sources do
     resources :notes
   end
-
+=======
   resources :theses
   resources :meetings
   match 'newMeeting' =>'meeting#new'
@@ -15,7 +15,7 @@ Tsys::Application.routes.draw do
   get "static/help"
 
 
-
+>>>>>>> d659804ddf80e9aecac3ea715319364d3b206a32
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

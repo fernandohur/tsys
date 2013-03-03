@@ -4,12 +4,12 @@ module NavigationHelpers
 
       when /the home\s?page/
         '/'
-
+<<<<<<< HEAD
       when /the source page/
         sources_path
       when /add source page/
         new_source_path
-
+=======
       when /book1/
         "/books/1"
       when /book2/
@@ -18,7 +18,7 @@ module NavigationHelpers
         "/books/3"
       when /the search page/
         "/search"
-
+>>>>>>> d659804ddf80e9aecac3ea715319364d3b206a32
 
       else
         begin

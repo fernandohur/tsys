@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @thesis.name %>
+</p>
+
+<ul class="activities">
+  <% @activities.each do |activity| %>
+      <li>
+        <%=  activity.name %>
+      </li>
+  <% end %>
+</ul>
+
+<%= link_to 'Edit', edit_thesis_path(@thesis) %> |
+<%= link_to 'Back', theses_path %>

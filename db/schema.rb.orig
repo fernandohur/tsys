@@ -11,23 +11,30 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20130303160806) do
-
-  create_table "activities", :force => true do |t|
-    t.string   "name"
-    t.integer  "thesis_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
 
   create_table "anotations", :force => true do |t|
     t.string   "id_source"
     t.string   "texto"
+=======
+ActiveRecord::Schema.define(:version => 20130227184327) do
+
+  create_table "activities", :force => true do |t|
+    t.string   "name"
+    t.integer  "thesis_id"
+>>>>>>> d659804ddf80e9aecac3ea715319364d3b206a32
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
+<<<<<<< HEAD
   create_table "data_files", :force => true do |t|
+=======
+  create_table "anotations", :force => true do |t|
+    t.string   "id_source"
+    t.string   "texto"
+>>>>>>> d659804ddf80e9aecac3ea715319364d3b206a32
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -37,14 +44,6 @@ ActiveRecord::Schema.define(:version => 20130303160806) do
     t.integer  "id_meeting"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-  end
-
-  create_table "meetings", :force => true do |t|
-    t.datetime "dateMeeting"
-    t.string   "noteMeeting"
-    t.integer  "thesis_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
   end
 
   create_table "notes", :force => true do |t|
@@ -70,6 +69,12 @@ ActiveRecord::Schema.define(:version => 20130303160806) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "somethings", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "sources", :force => true do |t|
     t.string   "name"
     t.string   "path"
@@ -84,6 +89,13 @@ ActiveRecord::Schema.define(:version => 20130303160806) do
     t.string   "username"
     t.string   "password"
     t.integer  "thesis_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "tests", :force => true do |t|
+    t.string   "name"
+    t.integer  "name2"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
