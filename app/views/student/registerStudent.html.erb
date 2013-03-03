@@ -1,0 +1,20 @@
+<h1>Registering a new student</h1>
+
+<%= form_tag :action => 'create' do%>
+    <p/>
+    <font size="3" color="red"> <p id="notice"><%= notice %></p></font>
+    <p>Enter student's name</p>
+    <input id="student_name" name="student_name" step="any" type="text" required="true">
+    <br/>
+    <p>Enter student's username</p>
+    <input id="username" name="username" step="any" type="text" required="true">
+    <br/>
+    <p>Enter student's password</p>
+    <input id="password" name="password" step="any" type="password" required="true">
+    <p>Enter student's thesis</p>
+    <%= text_field "studentActual", "thesis", :value => '1', :disabled =>true %>
+    <br/>
+    <%= submit_tag "Register", :id => "register" %>
+
+
+<% end%>
