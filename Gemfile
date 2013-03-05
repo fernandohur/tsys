@@ -6,7 +6,6 @@ gem 'rails', '>= 3.2.11'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 group :development, :test do
-  gem 'rspec-rails'
   gem 'sqlite3'
 end
 
@@ -32,7 +31,6 @@ gem 'less-rails'
 group :test do
   gem 'cucumber-rails'
   gem 'capybara'
-  gem 'rspec-rails'
   gem 'database_cleaner'
 end
 
