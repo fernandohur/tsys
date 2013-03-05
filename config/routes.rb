@@ -1,6 +1,9 @@
 Tsys::Application.routes.draw do
 
 
+  resources :theses
+
+
   resources :sources do
     resources :notes
   end
