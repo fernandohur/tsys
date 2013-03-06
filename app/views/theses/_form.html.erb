@@ -1,7 +1,7 @@
 <%= form_for(@thesis) do |f| %>
   <% if @thesis.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@thesis.errors.count, "error") %> prohibited this thesis from being saved:</h2>
+      <h2>Oops! Something happened.</h2>
 
       <ul>
       <% @thesis.errors.full_messages.each do |msg| %>
@@ -12,10 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :"please provide a valid name for the thesis process" %><br />
     <%= f.text_field :name %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= submit_tag "Create Thesis",:class=>"btn btn-primary"%>
 <% end %>

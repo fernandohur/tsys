@@ -46,13 +46,9 @@ When /^I choose "([^\"]*)"$/ do |field|
   choose(field)
 end
 
-Then /^I should see "([^\"]*)"$/ do |text|
-  page.should have_content(text)
-end
-
 Then /^I should see \/([^\/]*)\/$/ do |regexp|
   regexp = Regexp.new(regexp)
-  page.should have_content(regexp)
+  page.should_have_content(regexp)
 end
 
 Then /^I should not see "([^\"]*)"$/ do |text|

@@ -10,5 +10,9 @@ When /^I enter a valid name for the thesis$/ do
   fill_in "thesis_name", :with => "test_thesis"
 end
 
+When /^I click on submit button$/ do
+  click_button("Create Thesis")
+end
+
 
 

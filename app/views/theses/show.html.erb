@@ -1,17 +1,19 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Name:</b>
-  <%= @thesis.name %>
+  <h2> <%= @thesis.name %></h2>
 </p>
 
 <ul class="activities">
   <% @activities.each do |activity| %>
       <li>
-        <%=  activity.name %>
-      </li>
+       <h4> <%= activity.name %></h4>
+             <%  prdt =  activity.product
+                l = prdt.send("file_url")
+                if l.blank? %>
+                <p>     It seems the student hasn't upload any file in this activity!</p> </li>
+           <% end %>
   <% end %>
 </ul>
 
-<%= link_to 'Edit', edit_thesis_path(@thesis) %> |
-<%= link_to 'Back', theses_path %>
+<%= link_to 'Back', theses_path,:class=>"btn btn-secondary" %>
