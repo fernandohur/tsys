@@ -1,11 +1,5 @@
-<h1>Listing theses</h1>
+<%= render_title "Theses", "these are the theses you are managing, professor"%>
 
-<table>
-  <tr>
-    <th>These are the following Theses you are managing:</th>
-  </tr>
-</table>
-<br>
 
 <% if @theses.count<1   %>
       <p>Wow. Scratch that. You are not managing any thesis at the moment professor.</p>
@@ -13,7 +7,7 @@
       @theses.each do |thesis| %>
         <table>
           <tr>Name
-            <td><h4><%= thesis.name %></td></h4>
+            <td><h3><%= thesis.name %></td></h3>
             <td><%= link_to 'Show', thesis %></td>
             <td><%= link_to 'Destroy', thesis, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
