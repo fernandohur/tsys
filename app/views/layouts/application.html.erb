@@ -10,7 +10,7 @@
 
 
 
-<div class="navbar navbar-inverse navbar-fixed-top">
+<div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
       <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -23,17 +23,17 @@
         <ul class="nav">
           <li>
             <%= link_to theses_path do %>
-                <i class="icon-book icon-white"></i> thesis
+                <i class="icon-file"></i> thesis
             <% end %>
           </li>
           <li>
             <%= link_to sources_path do%>
-                <i class="icon-book icon-white"></i> sources
+                <i class="icon-book"></i> sources
             <% end %>
           </li>
           <li>
             <%= link_to meetings_path do%>
-                <i class="icon-calendar icon-white"></i> meetings
+                <i class="icon-calendar"></i> meetings
             <% end %>
           </li>
         </ul>
@@ -44,7 +44,7 @@
 
 
 
-<div style="margin-top: 40px;">
+<div style="margin-top: 60px;">
   <% if flash[:notice] %>
       <div class="alert alert-success">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
