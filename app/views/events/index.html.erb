@@ -1,8 +1,36 @@
 <%= render_title "My meetings","listing your current meetings" %>
+<div class="row">
+  <div id="calendar" class="span9">
 
-<div id="calendar">
+  </div>
+  <div class="span3">
+    <h3>Helpful links</h3>
+    <ul class="nav nav-tabs nav-stacked">
+      <li >
+        <%= link_to new_meeting_path do %>
+            <i class="icon-calendar"></i> new meeting
+        <% end %>
+      </li>
+      <li>
+        <%= link_to theses_path do%>
+            <i class="icon-file"></i> go to theses
+        <% end %>
+      </li>
+      <li>
+        <%= link_to sources_path do%>
+            <i class="icon-book"></i> sources
+        <% end %>
+      </li>
+      <li>
+        <%= link_to"#" do %>
+            <i class="icon-user"></i> profile
+        <% end %>
+      </li>
+    </ul>
 
+  </div>
 </div>
+
 <script>
     $(document).ready(function() {
 
@@ -14,7 +42,7 @@
 
                 //alert('Event: ' + calEvent.id);
                 window.location="/events/"+calEvent.id;
-
+                $("span").addClass('btn');
 
             }
         });
@@ -24,4 +52,3 @@
 
 <br />
 
-<%= link_to 'New Event', new_event_path %>
