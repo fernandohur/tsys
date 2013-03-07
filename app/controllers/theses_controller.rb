@@ -1,4 +1,10 @@
 class ThesesController < ApplicationController
+
+
+  def home
+
+  end
+
   # GET /theses
   # GET /theses.json
   def index

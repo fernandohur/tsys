@@ -5,7 +5,7 @@ Tsys::Application.routes.draw do
 
 
   resources :theses
-
+  match "/" => "theses#home"
 
   resources :sources do
     resources :notes
