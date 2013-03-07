@@ -2,6 +2,7 @@ class MeetingsController < ApplicationController
 
   def index
     @meetings = Meeting.all
+    @events = Event.all
   end
 
   def show

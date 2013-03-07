@@ -1,0 +1,27 @@
+<%= render_title "My meetings","listing your current meetings" %>
+
+<div id="calendar">
+
+</div>
+<script>
+    $(document).ready(function() {
+
+        // page is now ready, initialize the calendar...
+
+        $('#calendar').fullCalendar({
+            events: <%= @events.to_json.html_safe %>,
+            eventClick: function(calEvent, jsEvent, view) {
+
+                //alert('Event: ' + calEvent.id);
+                window.location="/events/"+calEvent.id;
+
+
+            }
+        });
+
+    });
+</script>
+
+<br />
+
+<%= link_to 'New Event', new_event_path %>

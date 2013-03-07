@@ -1,0 +1,21 @@
+<div id="calendar">
+
+</div>
+<script>
+    $(document).ready(function() {
+
+        // page is now ready, initialize the calendar...
+
+        $('#calendar').fullCalendar({
+            events: <%= @events.to_json.html_safe %>,
+            eventClick: function(calEvent, jsEvent, view) {
+
+                //alert('Event: ' + calEvent.id);
+                window.location="/meetings/"+calEvent.id;
+
+
+            }
+        });
+
+    });
+</script>

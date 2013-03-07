@@ -12,37 +12,7 @@
 
 
 
-<div class="navbar navbar-fixed-top">
-  <div class="navbar-inner">
-    <div class="container">
-      <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="brand" href="#">T-sys</a>
-      <div class="nav-collapse collapse">
-        <ul class="nav">
-          <li>
-            <%= link_to theses_path do %>
-                <i class="icon-file"></i> thesis
-            <% end %>
-          </li>
-          <li>
-            <%= link_to sources_path do%>
-                <i class="icon-book"></i> sources
-            <% end %>
-          </li>
-          <li>
-            <%= link_to meetings_path do%>
-                <i class="icon-calendar"></i> meetings
-            <% end %>
-          </li>
-        </ul>
-      </div><!--/.nav-collapse -->
-    </div>
-  </div>
-</div>
+<%= render "partials/navbar" %>
 
 
 
