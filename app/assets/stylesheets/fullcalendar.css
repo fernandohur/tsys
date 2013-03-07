@@ -295,7 +295,11 @@ a.fc-event {
 	border-style: solid;
 	border-width: 0;
 	overflow: hidden;
+    cursor: pointer;
 	}
+.fc-event-skin :HOVER{
+  background-color: #5F6F83;
+}
 	
 .fc-event-time,
 .fc-event-title {
