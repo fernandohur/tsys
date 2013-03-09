@@ -1,0 +1,12 @@
+<%= render_title "Students" , "Aqui puedes ver los estudiantes registrados" %>
+
+<div class="container">
+  <% @students.each do |n| %>
+      <p><%= n.username  %></p>
+      <p><%= n.name  %></p>
+      <br>
+  <% end %>
+
+  <%= link_to "add student", new_student_path, :class=>"btn btn-primary" %>
+
+</div>

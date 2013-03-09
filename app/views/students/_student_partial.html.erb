@@ -1,0 +1,13 @@
+<div class="well">
+  <h3><%= student.name%></h3>
+  <p><%= student.username %></p>
+  <%= link_to student_path(student),:class=>"btn btn-success" do %>
+      <i class="icon-eye-open"> view</i>
+  <% end %>
+  <%= link_to edit_sudent_path(student),:class=>"btn btn-info" do %>
+      <i class="icon-edit"> edit</i>
+  <% end %>
+  <%= link_to student, method: :delete, :class=>"btn btn-danger" do %>
+      <i class="icon-trash"> remove</i>
+  <% end %>
+</div>

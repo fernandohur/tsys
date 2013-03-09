@@ -1,45 +1,30 @@
 class StudentsController < ApplicationController
 
-  def registerStudent
-    @students=Student.all
-  end
-
   def index
-    render :registerStudent
+    @students = Student.all
   end
 
   def new
     @student=Student.new
-
   end
 
   def show
-    render :registerStudent
+    @student=Student.find( params[:id])
   end
 
   def create
-    name = params[:name]
-    password = params[:password]
-    thesis = 1
-    username=params[:username]
 
-    newStudent=Student.new(:name =>name, :password =>password, :thesis_id => thesis, :username => username)
+    @student = Student.new
 
-    puts "------------------------------"
-
-    respond_to do |format|
-      if newStudent.save
-        format.html { redirect_to(newStudent, :notice => "Student Registed") }
-        format.json { render :show }
-      else
-        format.html { redirect_to(newStudent, :notice => "Student NOT Registed")  }
-        format.json { render(:json => { :errors => newStudent.errors }, :status => :not_acceptable) }
-      end
-
-
-    end
-
+    @student.name = params[:student_name]
+    @student.password = params[:password]
+    @student.thesis_id = 1
+    @student.username = params[:username]
+    @student.save
+    flash[:notice]="Student Registed"
+    puts "----------------"
+    puts @student.name
+    redirect_to @student
   end
-
 
 end
