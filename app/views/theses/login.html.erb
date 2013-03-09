@@ -1,0 +1,22 @@
+<h1>Login</h1>
+
+<%= form_tag :action => 'login' do%>
+    <p/>
+    <p>Enter username</p>
+    <input id="username" name="username" step="any" type="text" required="true">
+    <br/>
+    <p>Enter password</p>
+    <input id="password" name="password" step="any" type="password" required="true">
+    <br/>
+
+    Are you a professor or a student?
+
+    <br>
+        <input type="radio" name="userType" value="Professor" checked> Professor<br>
+        <input type="radio" name="userType" value="Student"> Student
+
+
+    <br><br/>
+
+    <%= submit_tag "Login", :id => "login", :class=>"btn btn-primary"%>
+<% end%>

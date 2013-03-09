@@ -27,4 +27,20 @@ class StudentsController < ApplicationController
     redirect_to @student
   end
 
+  def destroy
+    student = Student.find(params[:id])
+    student.destroy
+
+    if (student.destroyed?)
+      flash[:notice]="Estudiante exitosamente eliminado";
+    else
+      flash[:error]="No se pudo eliminar el estudiante"
+    end
+    redirect_to "/students"
+  end
+
+  def edit
+
+  end
+
 end

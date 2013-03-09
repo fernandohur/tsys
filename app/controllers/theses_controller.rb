@@ -109,4 +109,14 @@ class ThesesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def login
+    password = params[:password]
+    username = params[:username]
+
+    #Using LDAP
+
+
+
+  end
 end

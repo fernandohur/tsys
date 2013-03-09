@@ -1,11 +1,10 @@
 Tsys::Application.routes.draw do
 
-
   resources :events
-
 
   resources :theses
   match "/" => "theses#home"
+  match "/login" => "theses#login"
 
   resources :sources do
     resources :notes
@@ -15,7 +14,6 @@ Tsys::Application.routes.draw do
   resources :theses
   resources :meetings
   match 'newMeeting' =>'meeting#new'
-
 
   get "static/home"
 
