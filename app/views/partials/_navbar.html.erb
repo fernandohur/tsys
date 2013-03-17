@@ -24,6 +24,11 @@
                 <i class="icon-book"></i> sources
             <% end %>
           </li>
+          <li <%= url_starts_with request, products_path %>>
+            <%=  link_to products_path do %>
+                <i class="icon-folder-open"></i> Products
+            <% end %>
+          </li>
           <li <%= url_starts_with request,meetings_path %>>
             <%= link_to events_path do%>
                 <i class="icon-calendar"></i> meetings

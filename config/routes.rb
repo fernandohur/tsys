@@ -2,6 +2,8 @@ Tsys::Application.routes.draw do
 
   resources :events
 
+  resources :products
+
   resources :theses
   match "/" => "theses#home"
   match "/login" => "theses#login"

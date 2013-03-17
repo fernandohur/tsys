@@ -7,6 +7,7 @@ gem "watu_table_builder", :require => "table_builder"
 
 group :development, :test do
   gem 'sqlite3'
+  gem 'rspec-rails'
 end
 
 

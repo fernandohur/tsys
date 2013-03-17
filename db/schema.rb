@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130307044638) do
+ActiveRecord::Schema.define(:version => 20130309055325) do
 
   create_table "activities", :force => true do |t|
     t.string   "name"
@@ -65,8 +65,9 @@ ActiveRecord::Schema.define(:version => 20130307044638) do
 
   create_table "products", :force => true do |t|
     t.string   "name"
-    t.string   "file_url"
     t.integer  "activity_id"
+    t.integer  "student_id"
+    t.string   "file_url"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
