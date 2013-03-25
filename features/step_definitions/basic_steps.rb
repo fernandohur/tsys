@@ -1,5 +1,5 @@
 Given /^I am in the register studentPage$/ do
-  visit '/students'
+  visit '/students/new'
 end
 
 When /^I enter the field_name with (.*)$/ do |studentName|

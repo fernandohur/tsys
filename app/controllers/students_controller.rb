@@ -14,17 +14,31 @@ class StudentsController < ApplicationController
 
   def create
 
-    @student = Student.new
+    @search = Student.find_by_username(params[:username])
 
-    @student.name = params[:student_name]
-    @student.password = params[:password]
-    @student.thesis_id = 1
-    @student.username = params[:username]
-    @student.save
-    flash[:notice]="Student Registed"
-    puts "----------------"
-    puts @student.name
-    redirect_to @student
+
+
+
+      @student = Student.new
+      @student.name = params[:student_name]
+      @student.password = params[:password]
+      @student.thesis_id = 1
+      @student.username = params[:username]
+      response=@student.save
+
+
+   if response==true
+     flash[:notice]="Student Registed"
+     redirect_to @student
+   else
+     flash[:notice]="Student NOT Registed"
+     redirect_to "/students"
+   end
+
+
+
+
+
   end
 
   def destroy

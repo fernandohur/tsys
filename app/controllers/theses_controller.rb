@@ -110,13 +110,40 @@ class ThesesController < ApplicationController
     end
   end
 
-  def login
+  # @return [Object]
+  def authenticate
     password = params[:password]
     username = params[:username]
 
     #Using LDAP
+    require 'rubygems'
+    require 'net/ldap'
+    ldap = Net::LDAP.new
+    ldap.host = "x500.bund.de"
+    ldap.port = "389"
+    ldap.auth username, password
+    is_authorized = ldap.bind
+
+    puts "---------------------------------"
+    puts is_authorized
+    puts "---------------------------------"
+
+    attrs = []
+    ldap.search( :base => "l=init,ou=Service,o=Bund,c=DE", :attributes => attrs, :return_result => true ) do |entry|
+    # entry is records returned after search
+    end
+
+    is_authorized = true
+    if is_authorized==true
+      @accessed=Student.find_by_username(username)
+      redirect_to @accessed
+    else
+      flash[:notice]="Invalid user"
+      redirect_to "/login"
+    end
 
 
 
   end
+
 end
