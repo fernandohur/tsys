@@ -118,14 +118,16 @@ class ThesesController < ApplicationController
     #Using LDAP
     require 'rubygems'
     require 'net/ldap'
+
     ldap = Net::LDAP.new
     ldap.host = "localhost"
-    ldap.port = "10389"
-    ldap.auth username, password
-    is_authorized = ldap.bind
+    ldap.port = 10389
+    userText=   "uid=" +username+",ou=users,ou=system"
 
-    is_authorized = true
-    if is_authorized==true
+    ldap.auth userText, password
+    result=ldap.bind
+
+    if result==true
       @accessed=Student.find_by_username(username)
       redirect_to @accessed
     else
