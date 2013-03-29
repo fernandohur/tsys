@@ -5,6 +5,7 @@ Feature: Testing LDAP
 
     Scenario Outline: Many users
       Given I am in the loginPage
+      And there are no students
       When I enter the field_username with <userName>
       And I enter the field_password with <password>
       And there are students with the same userNameTestL
