@@ -7,6 +7,7 @@ Feature: Testing LDAP
       Given I am in the loginPage
       When I enter the field_username with <userName>
       And I enter the field_password with <password>
+      And there are students with the same userNameTestL
       And I click on Login
       Then I should see text equal to <result>
 
