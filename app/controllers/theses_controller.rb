@@ -131,7 +131,7 @@ class ThesesController < ApplicationController
       @accessed=Student.find_by_username(username)
       redirect_to @accessed
     else
-      flash[:notice]="Invalid user"
+      flash[:notice]="Wrong username/password"
       redirect_to "/login"
     end
 
