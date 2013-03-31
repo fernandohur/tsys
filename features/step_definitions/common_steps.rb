@@ -47,8 +47,8 @@ When /^I choose "([^\"]*)"$/ do |field|
 end
 
 Then /^I should see "([^\"]*)"$/ do |regexp|
-  regexp = Regexp.new(regexp)
-  page.should_have_content(regexp)
+
+  page.should have_content(regexp)
 end
 
 Then /^I should not see "([^\"]*)"$/ do |text|
