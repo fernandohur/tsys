@@ -16,7 +16,6 @@ Tsys::Application.routes.draw do
   resources :students
   resources :theses
 
-<<<<<<< HEAD
   resources :meetings  do
     resources :meeting_notes
     resources :meeting_tasks
@@ -24,8 +23,6 @@ Tsys::Application.routes.draw do
 
   match 'newMeeting' =>'meeting#new'
 
-=======
->>>>>>> af511e755cf62e747ddca958f5d3d177d2d73787
   get "static/home"
 
   get "static/help"

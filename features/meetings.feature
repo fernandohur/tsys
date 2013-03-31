@@ -7,7 +7,7 @@ Feature: Create a meeting
     Given I am on the create meeting page
     When I enter the note meeting of "fdfafda dadsa"
     And I press "Create"
-    Then I should see "la cita fue exitosamente creada"
+    Then I should carlossee "la cita fue exitosamente creada"
 
 
 
