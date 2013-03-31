@@ -1,7 +1,7 @@
 class MeetingTasksController < ApplicationController
 
   def new
-
+    @meeting_task = MeetingTask.new
   end
 
   def index
@@ -26,5 +26,29 @@ class MeetingTasksController < ApplicationController
     flash[:notice]="task added"
 
     redirect_to meeting_meeting_tasks_path(meeting_task.meeting)
+  end
+
+  def edit
+       @meeting = Meeting.find(params[:meeting_id])
+       @meeting_task = @meeting.meeting_tasks.find(params[:id])
+
+  end
+
+  def update
+    puts "--------------------------------------------"
+    puts params
+    meeting_task = MeetingTask.find(params[:id])
+    meeting_task.task = params[:task]
+    meeting_task.expireDate = params[:expireDate]
+    if(params[:done] == nil)
+      params[:done] = false
+    end
+    meeting_task.done = params[:done]
+    meeting_task.meeting_id = params[:meeting_id]
+    meeting_task.save
+    flash[:notice]="task modified"
+
+    redirect_to meeting_meeting_tasks_path(meeting_task.meeting)
+
   end
 end
