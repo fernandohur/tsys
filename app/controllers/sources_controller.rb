@@ -1,7 +1,14 @@
 class SourcesController < ApplicationController
 
   def index
-    @sources = Source.all
+    sort_by = params[:sortby]
+    order = params[:order]
+    if sort_by
+      @sources = Source.order(sort_by << " " << order)
+    else
+      @sources = Source.all
+    end
+
   end
 
   def show
@@ -18,6 +25,7 @@ class SourcesController < ApplicationController
     @source.descripccion = params[:descripccion]
     @source.name = params[:name]
     @source.thesis_id = params[:thesis_id]
+    @source.category = params[:category]
 
     uploaded_io = params[:dataFile]
 

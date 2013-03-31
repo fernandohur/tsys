@@ -11,7 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20130320161013) do
+=======
+ActiveRecord::Schema.define(:version => 20130331170419) do
+>>>>>>> af511e755cf62e747ddca958f5d3d177d2d73787
 
   create_table "activities", :force => true do |t|
     t.string   "name"
@@ -75,8 +79,9 @@ ActiveRecord::Schema.define(:version => 20130320161013) do
 
   create_table "products", :force => true do |t|
     t.string   "name"
-    t.string   "file_url"
     t.integer  "activity_id"
+    t.integer  "student_id"
+    t.string   "file_url"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
@@ -96,6 +101,7 @@ ActiveRecord::Schema.define(:version => 20130320161013) do
     t.integer  "thesis_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.string   "category"
   end
 
   create_table "students", :force => true do |t|

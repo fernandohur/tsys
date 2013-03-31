@@ -1,16 +1,17 @@
 <div class="well">
   <h3><%= source.name %></h3>
   <p><%= source.descripccion %></p>
+  <p><span class="label label-info"><i class="icon-tag"></i> <%= source.category %> </span></p>
   <%= link_to source_path(source),:class=>"btn btn-success" do %>
-      <i class="icon-eye-open"> view</i>
+      <i class="icon-eye-open"></i> view
   <% end %>
   <%= link_to edit_source_path(source),:class=>"btn btn-info" do %>
-      <i class="icon-edit"> edit</i>
+      <i class="icon-edit"></i> edit
   <% end %>
   <%= link_to source_notes_path(source),:class=>"btn btn-info" do %>
-      <i class="icon-pencil"> notes</i>
+      <i class="icon-pencil"></i> notes
   <% end %>
   <%= link_to source, method: :delete, :class=>"btn btn-danger" do %>
-      <i class="icon-trash"> remove</i>
+      <i class="icon-trash"></i> remove
   <% end %>
 </div>

@@ -1,0 +1,46 @@
+<div class="row">
+
+  <div class="span9">
+    <h3><%= @product.name %></h3>
+    <br>
+    <p>created at: <b><%= @product.created_at %></b></p>
+    <p>File:    <b><% if @product.file_url.blank?%>
+                        No file associated
+                    <% else  %>
+                          <%=@product.file_url.split("products/")[1]  %>
+                    <% end %></b></p>
+    <% act = @product.activity_id
+       if !act.blank? %>
+            <p>Belongs to: </p><%= Activity.find(act).name %>
+    <% else %>
+            <p>**This product does not belong to any activity.</p>
+    <% end %>
+    <%= link_to @product, method: :delete, :class=>"btn btn-danger" do %>
+        <i class="icon-trash"> Delete</i>
+    <% end %>
+  </div>
+
+  <div class="span3">
+    <h3>Helpful links</h3>
+    <ul class="nav nav-tabs nav-stacked">
+      <li >
+        <%= link_to new_product_path do %>
+            <i class="icon-file"></i> Create a new product
+        <% end %>
+      </li>
+      <li>
+        <% if !@product.file_url.blank? %>
+            <%= link_to "/"+@product.file_url do %>
+                <i class="icon-download"></i> download file
+            <% end %>
+        <%end%>
+      </li>
+      <li>
+        <%= link_to"#" do %>
+            <i class="icon-user"></i> profile
+        <% end %>
+      </li>
+    </ul>
+
+  </div>
+</div>

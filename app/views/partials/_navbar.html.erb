@@ -14,9 +14,19 @@
                 <i class="icon-file"></i> thesis
             <% end %>
           </li>
+          <li <%= url_starts_with request, students_path %>>
+            <%= link_to students_path do%>
+                <i class="icon-user"></i> students
+            <% end %>
+          </li>
           <li <%= url_starts_with request,sources_path %>>
             <%= link_to sources_path do%>
                 <i class="icon-book"></i> sources
+            <% end %>
+          </li>
+          <li <%= url_starts_with request, products_path %>>
+            <%=  link_to products_path do %>
+                <i class="icon-folder-open"></i> Products
             <% end %>
           </li>
           <li <%= url_starts_with request,meetings_path %>>

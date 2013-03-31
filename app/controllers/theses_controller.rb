@@ -109,4 +109,34 @@ class ThesesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  # @return [Object]
+  def authenticate
+    password = params[:password]
+    username = params[:username]
+
+    #Using LDAP
+    require 'rubygems'
+    require 'net/ldap'
+
+    ldap = Net::LDAP.new
+    ldap.host = "localhost"
+    ldap.port = 10389
+    userText=   "uid=" +username+",ou=users,ou=system"
+
+    ldap.auth userText, password
+    result=ldap.bind
+
+    if result==true
+      @accessed=Student.find_by_username(username)
+      redirect_to @accessed
+    else
+      flash[:notice]="Wrong username/password"
+      redirect_to "/login"
+    end
+
+
+
+  end
+
 end

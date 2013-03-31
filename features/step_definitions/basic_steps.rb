@@ -1,5 +1,6 @@
+=begin
 Given /^I am in the register studentPage$/ do
-  visit '/students'
+  visit '/students/new'
 end
 
 When /^I enter the field_name with (.*)$/ do |studentName|
@@ -32,5 +33,7 @@ end
 Given /^there are students with the same userNameTest$/ do
   Student.new(:name =>@nameTest, :password =>@passTest, :thesis_id => 1, :username => @usernameTest).save
 end
+=end
+
 
 

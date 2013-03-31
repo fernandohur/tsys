@@ -1,0 +1,54 @@
+<%= render_title "Products" , 'ALl your documents online. Anywhere. Anytime.' %>
+
+<form class="navbar-search pull-left" method="get">
+  <input type="text" name="search" class="search-query" placeholder="Search for products...">
+  <%= submit_tag "Go", :name=>nil, :class=>"btn btn-info" %>
+</form>
+<br><br><br>
+<% if @search %>
+   <p>You are looking at products that contain "<%=@search%>" in their name.</p><br>
+<% end %>
+
+<div class="row" xmlns="http://www.w3.org/1999/html">
+  <div class="span9">
+    <% if @products.blank? %>
+        <p>It seems you do not have any products uploaded.</p>
+    <% else %>
+    <table class="table table-hover table-bordered table-striped" data-provides="rowlink">
+      <thead>
+      <tr>
+        <td><h3>Name</h3></td>
+        <td><h3>Activity</h3></td>
+      </tr>
+      </thead>
+      <% @products.each do |product| %>
+          <tr>
+            <td><a <%= link_to '', product %> <%= product.name %></td>
+            <td><% act = product.activity_id
+                   if !act.blank? %>
+                        <%= Activity.find(act).name %>
+                <% else %>
+                   N/A
+              <% end %></td></a>
+          </tr>
+      <% end %>
+    </table>
+   <% end %>
+  </div>
+    <div class="span3">
+      <h3>Helpful links</h3>
+      <ul class="nav nav-tabs nav-stacked">
+        <li >
+          <%= link_to new_product_path do %>
+              <i class="icon-file"></i> Create a new product
+          <% end %>
+        </li>
+        <li>
+          <%= link_to"#" do %>
+              <i class="icon-user"></i> profile
+          <% end %>
+        </li>
+      </ul>
+
+    </div>
+</div>

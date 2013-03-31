@@ -1,17 +1,19 @@
 source 'https://rubygems.org'
 
 gem 'rails', '>= 3.2.11'
-gem "watu_table_builder", :require => "table_builder"
+#gem "watu_table_builder", :require => "table_builder"
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 group :development, :test do
   gem 'sqlite3'
+  gem 'rspec-rails'
 end
 
+gem 'net-ldap'
 
 group :production do
-  gem 'pg'
+#  gem 'pg'
 end
 
 
