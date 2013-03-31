@@ -6,6 +6,6 @@ Feature: Create a meeting
   Scenario: Create a meeting with a note
     Given I am on the create meeting page
     When I enter the note meeting of "fdfafda dadsa"
-    And I click on submit
-    Then I should see "The reunion was created"
+    And I press "Create"
+    Then I should see "la cita fue exitosamente creada"
 

@@ -9,6 +9,8 @@ module NavigationHelpers
         sources_path
       when /add source page/
         new_source_path
+      when /the create meeting page/
+        '/meetings/new'
 
       when /book1/
         "/books/1"

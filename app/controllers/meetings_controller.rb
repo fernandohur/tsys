@@ -24,13 +24,16 @@ class MeetingsController < ApplicationController
     @meeting.thesis_id = params[:thesis_id]
 
     uploaded_io = params[:dataFile]
-
+    realPath = ""
+    if uploaded_io != nil
     path = Rails.root.join('public', 'uploads', uploaded_io.original_filename);
     File.open(path, 'w:ASCII-8BIT') do |file|
       file.write(uploaded_io.read)
 
     end
     realPath = File.absolute_path(path).split("public/")[1]
+    end
+
     @meeting.path= realPath
     @meeting.save
     flash[:notice]="la cita fue exitosamente creada"
