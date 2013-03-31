@@ -1,3 +1,4 @@
+=begin
 Given /^there is only (\d+) products$/ do |products|
   Product.delete_all
   (0..products.to_i-1).each do |i|
@@ -26,3 +27,4 @@ end
 When /^I click on delete$/ do
   click_link("Delete")
 end
+=end

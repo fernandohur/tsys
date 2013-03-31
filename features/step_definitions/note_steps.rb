@@ -1,3 +1,4 @@
+
 Given /^there is only (\d+) source with (\d+) note$/ do |sources, notes|
   Source.delete_all
   (0..sources.to_i-1).each do |i|

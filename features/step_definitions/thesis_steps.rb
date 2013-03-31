@@ -1,3 +1,4 @@
+=begin
 Given /^I am in the create thesis page$/ do
   visit('/theses/new')
 end
@@ -13,6 +14,7 @@ end
 When /^I click on submit button$/ do
   click_button("Create Thesis")
 end
+=end
 
 
 

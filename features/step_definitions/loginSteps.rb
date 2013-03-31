@@ -1,3 +1,4 @@
+=begin
 When /^I enter the field_password with (.*)$/ do |password|
   @passTest=password
   fill_in "password", :with => password
@@ -21,3 +22,4 @@ end
 Given /^there are students with the same userNameTestL$/ do
   Student.new(:name =>@usernameTest, :password =>@passTest,:username => @usernameTest).save
 end
+=end
