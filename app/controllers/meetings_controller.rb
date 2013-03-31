@@ -2,39 +2,51 @@ class MeetingsController < ApplicationController
 
   def index
     @meetings = Meeting.all
-    @events = Event.all
   end
 
   def show
     @meeting = Meeting.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @meeting }
-    end
   end
 
-  # GET /theses/new
-  # GET /theses/new.json
   def new
-    @meeting = Meeting.new(params[:@meeting])
+    @meeting = Meeting.new
+  end
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @meeting }
-    end
+  def edit
+    @meeting = Meeting.find(params[:id])
   end
 
   def create
-    @meeting = Meeting.new(params[:meeting])
-    respond_to do |format|
-      if @meeting.save
-        format.html { redirect_to @meeting, notice: 'Thesis was successfully created.' }
-        format.json { render json: @meeting, status: :created, location: @meeting}
-      else
-        format.html { render action: "new" }
-        format.json { render json: @meeting.errors, status: :unprocessable_entity }
-      end
+    @meeting = Meeting.new
+
+    @meeting.noteMeeting = params[:noteMeeting]
+    @meeting.dateMeeting = params[:dateMeeting]
+    @meeting.thesis_id = params[:thesis_id]
+
+    uploaded_io = params[:dataFile]
+
+    path = Rails.root.join('public', 'uploads', uploaded_io.original_filename);
+    File.open(path, 'w:ASCII-8BIT') do |file|
+      file.write(uploaded_io.read)
+
     end
+    realPath = File.absolute_path(path).split("public/")[1]
+    @meeting.path= realPath
+    @meeting.save
+    flash[:notice]="la cita fue exitosamente creada"
+    redirect_to @meeting
   end
+
+  def destroy
+    meeting = Meeting.find(params[:id])
+    meeting.destroy
+
+    if (meeting.destroyed?)
+      flash[:notice]="Cita exitosamente eliminada";
+    else
+      flash[:error]="No se pudo eliminar la cita"
+    end
+    redirect_to "/meetings"
+  end
+
 end

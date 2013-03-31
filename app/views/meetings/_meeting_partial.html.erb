@@ -1,0 +1,18 @@
+<div class="well">
+  <h3><%= meeting.dateMeeting %></h3>
+  <%= link_to meeting_path(meeting),:class=>"btn btn-success" do %>
+      <i class="icon-eye-open"> view</i>
+  <% end %>
+  <%= link_to edit_meeting_path(meeting),:class=>"btn btn-info" do %>
+      <i class="icon-edit"> edit</i>
+  <% end %>
+  <%= link_to meeting_meeting_notes_path(meeting),:class=>"btn btn-info" do %>
+      <i class="icon-pencil"> notes</i>
+  <% end %>
+  <%= link_to meeting, method: :delete, :class=>"btn btn-danger" do %>
+      <i class="icon-trash"> remove</i>
+  <% end %>
+  <%= link_to meeting_meeting_tasks_path(meeting), :class=>"btn btn-info" do %>
+      <i class="icon-list"> tasks</i>
+  <%end %>
+</div>

@@ -1,25 +1,41 @@
-<h1>Create meeting</h1>
+<%= render_title "Ingresar una reunion", "ingresa los datos para crear una reunion de tesis" %>
+<div class="container">
 
-<%= form_for(@meeting) do |f| %>
-    <% if @meeting.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@meeting.errors.count, "error") %> prohibited this meeting from being saved:</h2>
+  <%= form_tag( {:action => "index"},:multipart=>"true",:class => "form-horizontal") do  %>
 
-          <ul>
-            <% @meeting.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-            <% end %>
-          </ul>
+
+      <div class="control-group">
+        <%= label_tag :fecha,nil ,:class=>"control-label",:for=>:dateMeeting %>
+        <div class="controls">
+          <%= date_select :dateMeeting, {:order => [:month, :day, :year],:prompt => true, :start_year => Time.now.year, :end_year => 2019} %>
         </div>
-    <% end %>
-    <%= f.label :"Date Meeting"%>
-    <%= f.date_select :dateMeeting, {:order => [:month, :day, :year],:prompt => true, :start_year => Time.now.year, :end_year => 2019} %>
-    <%= f.label :"Note Meeting" %>
-    <%= f.text_area :noteMeeting, :size => "5x4" %>
-    <%= f.label :"Thesis id" %>
-    <%= f.number_field :thesis_id%>
-    <div class="actions">
-      <%= f.submit%>
-    </div>
+      </div>
 
-<% end %>
+
+      <div class="control-group">
+        <%= label_tag :nota,nil , :class=>"control-label", :for=>:nota%>
+        <div class="controls">
+          <%= text_area_tag :noteMeeting,nil,:size=>"5x5", :id=>:noteMeeting%>
+        </div>
+      </div>
+
+
+      <div class="control-group">
+        <%= label_tag :path,nil ,:class=>"control-label",:for=>:path%>
+        <div class="controls">
+          <%= file_field_tag 'dataFile' %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <%= label_tag :thesis_id,nil ,:class=>"control-label",:for=>:thesis_id %>
+        <div class="controls">
+          <%= text_field_tag :thesis_id %>
+        </div>
+      </div>
+      <br>
+      <%= submit_tag "Create" ,:class=>"btn btn-primary"%>
+  <% end %>
+</div>
+
+

@@ -1,0 +1,24 @@
+<%=  render_title "Notas", "estas son las anotaciones que has hecho sobre la reunion" %>
+
+<div class="container">
+  <% @meeting_notes.each do |n| %>
+      <p><%= n.noteText  %></p>
+      <p>Created: <%= n.created_at %></p>
+      <%= link_to url_for([n.meeting,n]), method: :delete,:class=>"btn btn-danger", :id=>"delete-#{n.id}" do %>
+          <i class="icon-remove"> remove</i>
+      <% end %>
+      <br>
+
+  <% end %>
+
+  <hr>
+
+  <h4>Add a note</h4>
+  <%= form_for @meeting_note,:url => { :action => "create" } do |f|%>
+      <%= f.text_area :noteText , :size=>"5x5" %>
+      <%= f.submit "add note" , :class=>"btn btn-primary" %>
+
+  <% end %>
+
+</div>
+

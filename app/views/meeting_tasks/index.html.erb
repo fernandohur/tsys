@@ -1,0 +1,28 @@
+<%=  render_title "Tareas", "estas son tareas que tienes de una reunion" %>
+
+<div class="container">
+  <% @meeting_tasks.each do |n| %>
+      <p><%= n.task  %></p>
+      <p>Created: <%= n.created_at %></p>
+      <%= link_to url_for([n.meeting,n]), method: :delete,:class=>"btn btn-danger", :id=>"delete-#{n.id}" do %>
+          <i class="icon-remove"> remove</i>
+      <% end %>
+      <br>
+
+  <% end %>
+
+  <hr>
+
+  <h4>Add a task</h4>
+  <%= form_for @meeting_task,:url => { :action => "create" } do |f|%>
+      <%= f.text_area :task, :size=>"5x5" %>
+      <br>
+      <%= f.datetime_select :expireDate, {:order => [:month, :day, :year],:prompt => true, :start_year => Time.now.year, :end_year => Time.now.year + 1} %>
+      <br>
+      <%= f.check_box :done %>
+      <br><br>
+      <%= f.submit "add task" , :class=>"btn btn-primary" %>
+
+  <% end %>
+
+</div>

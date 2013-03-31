@@ -1,1 +1,46 @@
-<p>The reunion was created</p>
+<div class="row">
+
+  <div class="span9">
+    <h1><%= @meeting.dateMeeting %></h1>
+
+    <h4>Notes</h4>
+    <% @meeting.meeting_notes.each do |n| %>
+        <p><%= n.noteText  %></p>
+        <p>Created: <%= n.created_at %></p>
+        <br>
+    <% end %>
+  </div>
+
+  <div class="span3">
+    <h3>Helpful links</h3>
+    <ul class="nav nav-tabs nav-stacked">
+      <li >
+        <%= link_to "/"+@meeting.path do %>
+            <i class="icon-download"></i> download
+        <% end %>
+      </li>
+      <li>
+        <%= link_to meeting_meeting_notes_path(@meeting) do%>
+            <i class="icon-pencil"></i> add note
+        <% end %>
+      </li>
+      <li>
+        <%= link_to meeting_path do%>
+            <i class="icon-book"></i> sources
+        <% end %>
+      </li>
+      <li>
+        <%= link_to"#" do %>
+            <i class="icon-user"></i> profile
+        <% end %>
+      </li>
+      <li>
+        <%= link_to meeting_meeting_tasks_path(@meeting) do%>
+            <i class="icon-list"></i> add note
+        <% end %>
+      </li>
+    </ul>
+
+  </div>
+
+</div>
