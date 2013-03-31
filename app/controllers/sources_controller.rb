@@ -18,6 +18,7 @@ class SourcesController < ApplicationController
     @source.descripccion = params[:descripccion]
     @source.name = params[:name]
     @source.thesis_id = params[:thesis_id]
+    @source.category = params[:category]
 
     uploaded_io = params[:dataFile]
 
