@@ -1,4 +1,4 @@
-<%=  render_title "Notas", "estas son las anotaciones que has hecho sobre la reunion" %>
+<%=  render_title "Notes", "This are the notes you have done for a meeting" %>
 
 <div class="container">
   <% @meeting_notes.each do |n| %>
@@ -7,6 +7,7 @@
       <%= link_to url_for([n.meeting,n]), method: :delete,:class=>"btn btn-danger", :id=>"delete-#{n.id}" do %>
           <i class="icon-remove"> remove</i>
       <% end %>
+      <br>
       <br>
 
   <% end %>

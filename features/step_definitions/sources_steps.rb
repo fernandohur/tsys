@@ -10,3 +10,7 @@ When /^I accept the dialog$/ do
   page.driver.browser.switch_to.alert.accept
 end
 
+Then /^there should be (\d+) meetings$/ do |n|
+  assert_equal(n.to_i,Meeting.all.size,"Meetings size was #{Meeting.all.size}, but #{n} was expected")
+end
+

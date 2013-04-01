@@ -9,4 +9,8 @@ Then /^I should carlossee "(.*?)"$/ do |arg1|
   arg1=Regexp.new(arg1)
   assert page.has_content?(arg1)
 end
+
+When /^I enter the meeting's note text  "(.*?)"$/ do |arg1|
+  fill_in "meeting_note_noteText", :with => arg1
+end
 end
