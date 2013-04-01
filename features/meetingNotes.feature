@@ -12,7 +12,7 @@ Feature: Meeting Note management
     Then I should see "note destroyed"
     And I should see "This are the notes you have done for a meeting"
 
-  Scenario: Try to delete a meeting note for an existing meeting when there is no meetings
+  Scenario: Try to delete a meeting note for an existing meeting when there is no note
     Given there is only 1 meeting with 0 note
     And I am on the meeting page
     When I click "notes"

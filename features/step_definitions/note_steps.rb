@@ -27,3 +27,14 @@ Given /^there is only (\d+) meeting with (\d+) note$/ do |meetings, notes|
   end
 end
 
+Given /^there is only (\d+) meeting with (\d+) task$/ do |meetings, tasks|
+  Meeting.delete_all
+  (0..meetings.to_i-1).each do |i|
+
+    s=Meeting.new
+    (0..tasks.to_i-1).each do |j|
+      s.meeting_tasks.new(:task=>"task text")
+    end
+    s.save
+  end
+end

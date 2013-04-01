@@ -4,26 +4,26 @@ Feature: Meeting Task management
   Should blah
 
 
-  Scenario: Delete a meeting task for an existing meeting when there is 1 meeting note
-    Given there is only 1 meeting with 1 note
+  Scenario: Delete a meeting task for an existing meeting when there is 1 meeting task
+    Given there is only 1 meeting with 1 task
     And I am on the meeting page
-    And I click "notes"
+    And I click "tasks"
     When I click "remove"
-    Then I should see "note destroyed"
-    And I should see "This are the notes you have done for a meeting"
+    Then I should see "task destroyed"
+    And I should see "These are the tasks that you have of the meeting"
 
-  Scenario: Try to delete a meeting note for an existing meeting when there is no meetings
-    Given there is only 1 meeting with 0 note
+  Scenario: Try to delete a meeting task for an existing meeting when there is no task
+    Given there is only 1 meeting with 0 task
     And I am on the meeting page
-    When I click "notes"
-    And I should see "This are the notes you have done for a meeting"
+    When I click "tasks"
+    And I should see "These are the tasks that you have of the meeting"
     Then I should not see "remove"
 
-  Scenario: Try to delete a meeting note for an existing meeting when there are 2 meeting's notes
-    Given there is only 1 meeting with 2 note
+  Scenario: Try to delete a meeting note for an existing meeting when there are 2 meeting's tasks
+    Given there is only 1 meeting with 2 task
     And I am on the meeting page
-    And I click "notes"
+    And I click "tasks"
     When I click the first "remove"
-    Then I should see "This are the notes you have done for a meeting"
-    And I should see "note destroyed"
+    Then I should see "These are the tasks that you have of the meeting"
+    And I should see "task destroyed"
     And I should see "remove"
