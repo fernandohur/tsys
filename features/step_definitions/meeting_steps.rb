@@ -1,20 +1,16 @@
-=begin
+begin
 require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "paths"))
 
-Given /^I am on the create meeting page$/ do
-  visit('/meetings/new')
-end
-
 When /^I enter the note meeting of "(.*?)"$/ do |arg1|
-  fill_in "meeting_noteMeeting", :with => arg1
+  fill_in "noteMeeting", :with => arg1
 end
 
-When /^I click on submit$/ do
-  click_button("Create Meeting")
-end
-
-Then /^I should see "(.*?)"$/ do |arg1|
+Then /^I should carlossee "(.*?)"$/ do |arg1|
   arg1=Regexp.new(arg1)
-  page.should have_content(arg1)
+  assert page.has_content?(arg1)
 end
-=end
+
+When /^I enter the meeting's note text  "(.*?)"$/ do |arg1|
+  fill_in "meeting_note_noteText", :with => arg1
+end
+end

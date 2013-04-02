@@ -1,4 +1,4 @@
-=begin
+begin
 Given /^I am in the register studentPage$/ do
   visit '/students/new'
 end
@@ -33,7 +33,7 @@ end
 Given /^there are students with the same userNameTest$/ do
   Student.new(:name =>@nameTest, :password =>@passTest, :thesis_id => 1, :username => @usernameTest).save
 end
-=end
+end
 
 
 

@@ -1,0 +1,43 @@
+<%=  render_title "Task", "These are the tasks that you have of the meeting" %>
+
+<div class="container">
+  <% @meeting_tasks.each do |n| %>
+      <p><%= n.task  %></p>
+      <p>Expire: <%= n.expireDate %></p>
+      <p>Done: <%= n.done %></p>
+      <%= link_to url_for([n.meeting,n]), method: :delete,:class=>"btn btn-danger", :id=>"delete-#{n.id}" do %>
+          <i class="icon-remove"> remove</i>
+      <% end %>
+      <%= link_to edit_meeting_meeting_task_path(n.meeting,n),:class=>"btn btn-info" do %>
+          <i class="icon-edit"> edit</i>
+          <br>
+      <% end %>
+      <br>
+      <br>
+
+  <% end %>
+
+  <hr>
+
+  <h3>Add a task</h3>
+  <%= form_for @meeting_task,:url => { :action => "create" } do |f|%>
+
+      <%= f.text_area :task, :size=>"5x3" %>
+      <br>
+      <div class="control-group">
+        <%= label_tag :expire_Date ,"Expire Date" ,:class=>"control-label",:for=>:dateMeeting %>
+        <div class="controls">
+          <%= f.datetime_select :expireDate, {:default => 3.days.from_now, :order => [:month, :day, :year], :start_year => Time.now.year, :end_year => Time.now.year + 1} %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= label_tag :doneTask ,"Task has been Done?" ,:class=>"control-label",:for=>:dateMeeting %>
+        <div class="controls">
+      <%= f.check_box :done %>
+        </div>
+      </div>
+      <%= f.submit "add task" , :class=>"btn btn-primary" %>
+
+  <% end %>
+
+</div>

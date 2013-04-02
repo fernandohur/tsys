@@ -1,0 +1,21 @@
+<h4>Edit task</h4>
+<% url = "/meetings/#{@meeting.id}/meeting_tasks/#{@meeting_task.id}" %>
+<%= form_tag url, :method => :put do %>
+
+    <%= text_area_tag :task, @meeting_task.task, :size=>"5x5" %>
+    <br>
+    <div class="control-group">
+      <%= label_tag :expireDate ,"Expire Date" ,:class=>"control-label",:for=>:dateMeeting %>
+      <div class="controls">
+    <%= datetime_select :expireDate, @meeting_task.expireDate, {:default => 3.days.from_now, :order => [:month, :day, :year], :start_year => Time.now.year, :end_year => Time.now.year + 1} %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= label_tag :doneTask ,"Task has been Done?" ,:class=>"control-label",:for=>:dateMeeting %>
+      <div class="controls">
+    <%= check_box_tag :done, 1, @meeting_task.done %>
+      </div>
+    </div>
+    <%= submit_tag(:updateTask, :class => "btn btn-primary") %>
+
+<% end %>

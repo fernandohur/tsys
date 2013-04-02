@@ -1,0 +1,500 @@
+   34  git checkout master --force
+   35  git checkout ceduquey
+   36  git rebase master
+   37  git --force-rebase master
+   38  git rebase master
+   39  git merger origin/master
+   40  git merge origin/master
+   41  git checkout ceduquey
+   42  git pull 
+   43  git commit -m "vamos a ver"
+   44  git push
+   45  git checkout master
+   46  git checkout ceduquey
+   47  git rebase ceduquey
+   48  git rebase master
+   49  git rebase master
+   50  git rebase master --force
+   51  git rebase master --force
+   52  git checkout master
+   53  vim .gitignore
+   54  git rm --cached .idea
+   55  git rm -r  --cached .idea
+   56  git commit -m "el cache"
+   57  git push 
+   58  git checkout ceduquey
+   59  git rebase master
+   60  git mergetool
+   61  git rebase master
+   62  git mergetool
+   63  git rebase master
+   64  git mergetool
+   65  git rebase master
+   66  git rebase --continue
+   67  exit
+   68  cd RubymineProjects/
+   69  cd ts
+   70  cd tsys/
+   71  git branch -D ceduquey
+   72  git push -origin --delete ceduquey
+   73  git push -origin :ceduquey
+   74  git push origin :ceduquey
+   75  git push origin :ceduquey
+   76  git branch ceduquey
+   77  git checkout ceduquey
+   78  rails g model meeting dateMeeting:datetimenoteMeeting:string thesis_id:integer
+   79  bundle install
+   80  rails g model meeting dateMeeting:datetimenoteMeeting:string thesis_id:integer
+   81  rake db:migrate
+   82  rails g controller meetings
+   83  rails destroy model meeting
+   84  rails g model meeting dateMeeting:datetimenoteMeeting:string thesis_id:integer
+   85  rake db:migrate
+   86  rails destroy model meeting
+   87  rake db:migrate
+   88  rails g model meeting dateMeeting:datetime noteMeeting:string thesis_id:integer
+   89  rake db:migrate
+   90  sqlite3 db/development.sqlite3 
+   91  rails destroy model meeting
+   92  rake db:migrate
+   93  rails g model meeting dateMeeting:datetime noteMeeting:string thesis_id:integer
+   94  rake db:migrate
+   95  rails c
+   96  cd RubymineProjects/tsys/
+   97  bundle install
+   98  gem update rails
+   99  script/generate cucumber
+  100  sudo rake gems:install RAILS_ENV=test
+  101  task --trace
+  102  sudo rake gems:install RAILS_ENV=test
+  103  script/generate cucumber
+  104  rails generate cucumber
+  105  cucumber --help
+  106  rails generate cucumber
+  107  rails generate cucumber:install
+  108  cucumber features -n
+  109  bundle exec cucumber
+  110  bundle exec cucumber
+  111  bundle exec cucumber
+  112  bundle exec cucumber
+  113  bundle exec cucumber
+  114  bundle exec cucumber
+  115  bundle exec cucumber
+  116  rake routes
+  117  rake routes
+  118  bundle exec cucumber
+  119  bundle exec cucumber
+  120  bundle exec cucumber
+  121  bundle exec cucumber
+  122  bundle exec cucumber
+  123  bundle exec cucumber
+  124  rake db:test:prepare
+  125  bundle exec cucumber
+  126  rake db:migrate
+  127  cd RubymineProjects/tsys/
+  128  rake db:migrate
+  129  bundle exec cucumber
+  130  exit
+  131  dscacheutil -flushcache
+  132  dscacheutil -flushcache
+  133  exit
+  134  cd RubymineProjects/tsys/
+  135  bundle exec cucumber
+  136  bundle exec cucumber
+  137  bundle exec cucumber
+  138  bundle exec cucumber
+  139  cd
+  140  ls
+  141  cd Documents/
+  142  ls
+  143  cd Semestre11/
+  144  cd Semestre 11/
+  145  cd Semestre 11
+  146  ls
+  147  cd "Semestre 11"/
+  148  ls
+  149  cd "Procesos ágiles"/
+  150  bundle install
+  151  ls
+  152  cd agiles-bookstore/
+  153  bundle install
+  154  cd
+  155  cd RubymineProjects/agiles-bookstore/
+  156  rake db:migrate
+  157  bundle exec cucumber
+  158  cd ../
+  159  cd tsys/
+  160  bundle exec cucumber
+  161  bundle exec cucumbe
+  162  bundle exec cucumber
+  163  bundle exec cucumber
+  164  bundle exec cucumber
+  165  bundle exec cucumber
+  166  bundle exec cucumber
+  167  bundle exec cucumber
+  168  bundle exec cucumber
+  169  bundle exec cucumber
+  170  git commit -m "con pruebas"
+  171  git push origin ceduquey
+  172  cd RubymineProjects/tsys/
+  173  git checkout master
+  174  git commit -m "con pruebas"
+  175  git push origin ceduquey
+  176  git checkout master
+  177  git rm --cached
+  178  git r --cached
+  179  git rm --cached
+  180  git checkout master
+  181  git rm --cached
+  182  git checkout -f master
+  183  git merge ceduquey
+  184  git commit -m "con meetings"
+  185  git push origin
+  186  git checkout master
+  187  git pull
+  188  git push 
+  189  git checkout ceduquey
+  190  git cherry-pick --abort
+  191  git branch -va
+  192  git status
+  193  git stash
+  194  git reset --hard ceduquey github/ceduquey
+  195  git revert {commit-sha1}
+  196  git cherry-pick --continue
+  197  git cherry-pick --abort
+  198  rm .git/CHERRY_PICK_HEAD
+  199  git cherry-pick --quit
+  200  git cherry-pick --abort
+  201  git cherry-pick
+  202  git cherry-pick--abort
+  203  git cherry-pick -- abort
+  204  git rebase --abort
+  205  git cherry-pick --abort
+  206  git cherry-pick (--abort9
+  207  git cherry-pick --abort
+  208  Untracked files:
+  209  git reset --hard 97d5715b4dfc824709bc9d26e693879e06b06653
+  210  git push -f
+  211  cd RubymineProjects/tsys/
+  212  git checkout ceduquey
+  213  git merge master
+  214  git commit -m "merge con el master"
+  215  git merge master
+  216  rails g model meeting dateMeeting:datetimenoteMeeting:string thesis_id:integer
+  217  rake db:migrate
+  218  rails destroy model meeting
+  219  rails g model meeting dateMeeting:datetime noteMeeting:string thesis_id:integer
+  220  rake db:migrate
+  221  cd 
+  222  history >> filename.txt
+  223  ls
+  224  cd RubymineProjects/tsys/
+  225  rails g controller meetings
+  226  git commit -m "otra vez el controlador y el modelo"
+  227  git commit -m "algo del view"
+  228  sqlite3 db/development.sqlite3 
+  229  rails c
+  230  bundle exec cucumber
+  231  bundle exec cucumber
+  232  bundle install
+  233  bundle exec cucumber
+  234  bundle exec cucumber
+  235  bundle exec cucumber
+  236  bundle exec cucumber
+  237  bundle exec cucumber
+  238  bundle exec cucumber
+  239  bundle exec cucumber
+  240  bundle exec cucumber
+  241  rails g cucumber:install
+  242  bundle exec cucumber
+  243  bundle exec cucumber
+  244  bundle exec cucumber
+  245  exit
+  246  cd RubymineProjects/tsys/
+  247  git checkout master
+  248  git checkout master
+  249  git pull origin
+  250  bundle exec cucumber
+  251  exit
+  252  cd RubymineProjects/tsys/
+  253  git branch -d ceduquey
+  254  exit
+  255  curl https://raw.github.com/diaspora/diaspora/master/script/install.sh
+  256  la
+  257  ls -la
+  258  ls
+  259  cd RubymineProjects/
+  260  mkdir test
+  261  ls
+  262  cd test/
+  263  curl https://raw.github.com/diaspora/diaspora/master/script/install.sh
+  264  ls
+  265  ls -la
+  266  raila s
+  267  rails s
+  268  rails server
+  269  clear
+  270  git clone https://github.com/diaspora/diaspora.git
+  271  ls
+  272  cd diaspora/
+  273  ls
+  274  rails s
+  275  rails
+  276  rvm install 1.9.3-p385
+  277  rails new
+  278  gem install rails
+  279  rails s
+  280  rails
+  281  rails s
+  282  rails server
+  283  cd ..
+  284  cd --
+  285  cd -
+  286  ls
+  287  cd diaspora/
+  288  sudo rails s
+  289  rails -v
+  290  rail -v
+  291  rvm
+  292  echo $PATH
+  293  rails server
+  294  whereis rails
+  295  gem environment
+  296  sudo gem install rails
+  297  rvm list
+  298  rvm gemset list_all
+  299  rvm list
+  300  rails
+  301  rails server
+  302  rails server
+  303  cd RubymineProjects/
+  304  ls
+  305  cd test
+  306  ls
+  307  cd diaspora/
+  308  cd ../
+  309  cd ../
+  310  ls
+  311  cd pesoIdeal/
+  312  rails server
+  313  rails -v
+  314  cd ../
+  315  cd te
+  316  cd test/
+  317  ls
+  318  cd diaspora/
+  319  cd ..
+  320  rm diaspora/
+  321  rmdir diaspora/
+  322  cs
+  323  printf "\ec"
+  324  clear 
+  325  printf "\ec"
+  326  printf "\ec"
+  327  printf "\ec"
+  328  printf "\ec"
+  329  printf "\ec"
+  330  printf "\ec"
+  331  printf "\ec"
+  332  printf "\ec"
+  333  printf "\ec"
+  334  printf "\ec"
+  335  printf "\ec"
+  336  printf "\ec"
+  337  printf "\ec"
+  338  printf "\ec"
+  339  printf "\ec"
+  340  printf "\ec"
+  341  printf "\ec"
+  342  printf "\ec"
+  343  printf "\ec"
+  344  printf "\ec"
+  345  printf "\ec"
+  346  printf "\ec"
+  347  printf "\ec"
+  348  printf "\ec"
+  349  printf "\ec"
+  350  printf "\ec"
+  351  printf "\ec"
+  352  ls
+  353  man rmdir 
+  354  cd RubymineProjects/tsys/
+  355  git pull origin
+  356  git pull origin master
+  357  git checkout master
+  358  git pull origin master
+  359  bundle install
+  360  rake db:migrate
+  361  bundle install
+  362  rails -v
+  363  bundle install --deployment
+  364  gem -v
+  365  gem update --system
+  366  openssl version
+  367  rvm get head
+  368  rvm pkg remove
+  369  rvm requirements run
+  370  sudo rvm requirements run
+  371  ruby -v
+  372  bundle install
+  373  rvm pkg install libyaml
+  374  rvm reinstall all --force
+  375  sudo rvm reinstall all --force
+  376  ILoveBurritos
+  377  sudo rvm reinstall all --force
+  378  sudo rvm reinstall all --force
+  379  rvm reinstall all --force
+  380  rvm pkg install libyaml
+  381  rvm get head
+  382  rvm pgk remove
+  383  rvm pkg remove
+  384  rvm requirements run
+  385  sudo rvm reinstall all --force
+  386  rvm reinstall 1.9.3
+  387  ruby -v
+  388  rails -v
+  389  rvm install 2.0.0 --autolibs=3
+  390  gcc --version
+  391  ruby -v
+  392  su 
+  393  su -
+  394  sudo sed -i'' -e "s#rvm_configure_env=('LDFLAGS=-L/opt/sm/pkg/active/lib CFLAGS=-I/opt/sm/pkg/active/include CPATH=/opt/sm/pkg/active/include')#rvm_configure_env=('LDFLAGS=-L/opt/sm/pkg/active/lib' 'CFLAGS=-I/opt/sm/pkg/active/include' 'CPATH=/opt/sm/pkg/active/include')#" /etc/rvmrc
+  395  rvm install 2.0.0 --autolibs=3
+  396  rails -v
+  397  cd RubymineProjects/tsys/
+  398  bundle install
+  399  rvm implode
+  400  ruby -v
+  401  rails -v
+  402  rvm list
+  403  ruby -v
+  404  ruby -v
+  405  ruby -v
+  406  ruby -v
+  407  rails -v
+  408  git
+  409  rvm .v
+  410  rvm -v
+  411  ruby -v
+  412  echo $PATHç
+  413  echo $PATH
+  414  which ruby
+  415  rvm list
+  416  rvm help install
+  417  sm --version
+  418  osx-gcc-installer 
+  419  osx-gcc-installer 4.1
+  420  gcc-4.2 --version
+  421  rvm implode
+  422  rm -rf ~/.rvm*
+  423  rm -rf ~/.rvm*
+  424  rm -rf ~/.rvm*
+  425   rm -rf ~/.rvm*
+  426  rm -rf ~/.rvm*
+  427  sudo rvm implode
+  428  gem uninstall rvm
+  429  ruby -v
+  430  cd RubymineProjects/
+  431  cd ts
+  432  cd tsys/
+  433  rake db:migrate
+  434  bundle instal
+  435  bundle install
+  436  sudo apt-get install ruby-dev libpq-dev build-essential
+  437  sudo gem install ruby-dev libpq-dev build-essential
+  438  gem install pg -v '0.14.1'
+  439  rvm pkg install openssl
+  440  rvm reload
+  441  rvm pkg install openssl
+  442  rvm reinstall all --force
+  443  sudo sed -i'' -e "s#rvm_configure_env=('LDFLAGS=-L/opt/sm/pkg/active/lib CFLAGS=-I/opt/sm/pkg/active/include CPATH=/opt/sm/pkg/active/include')#rvm_configure_env=('LDFLAGS=-L/opt/sm/pkg/active/lib' 'CFLAGS=-I/opt/sm/pkg/active/include' 'CPATH=/opt/sm/pkg/active/include')#" /etc/rvmrc
+  444  rvm reinstall all --force
+  445  rvm reinstall ruby-1.9.3-p194 --with-openssl-dir=/usr/local
+  446  ruby -v
+  447  bundle install
+  448  bundle install --without=production
+  449  rake db:migrate
+  450  rake db:migrate
+  451  rake db:migrate
+  452  db:migrate
+  453  rake db:migrate --force
+  454  cd RubymineProjects/tsys/
+  455  git fetch -p origin 
+  456  git checkout master
+  457  git pull origin master
+  458  git checkout -b ceduquey2
+  459  git reset --hard HEAD
+  460  git reset --hard HEAD
+  461  git push -u origin ceduquey2
+  462  git reset --hard HEAD
+  463  exit
+  464  cd RubymineProjects/tsys/
+  465  rake db:test:prepare
+  466  rake db:migrate
+  467  drop_table :meetings
+  468  rails console
+  469  rake db:migrate
+  470  sqlite3 db/development.sqlite3
+  471  rake db:migrate
+  472  rake db:migrate
+  473  sqlite3 db/development.sqlite3
+  474  rake db:migrate
+  475  rake db:test:prepare
+  476  rake db:migrate
+  477  rake db:test:prepare
+  478  sqlite3 db/development.sqlite3
+  479  rake db:reset
+  480  rake db:drop:all
+  481  rake db:create:all
+  482  rake --describe db
+  483  rake db:rollback
+  484  rake db:rollback
+  485  rake db:migrate
+  486  rails g model meetings path:string
+  487  rails g model meeting path:string
+  488  rails destroy model meeting
+  489  rails g model meeting dateMeeting:datetime noteMeeting:string thesis_id:integer path:string
+  490  rake db:migrate
+  491  sqlite3 db/development.sqlite3
+  492  rake db:migrate
+  493  rails destroy model meeting
+  494  rails destroy model meeting_note
+  495  rails g model meeting dateMeeting:datetime noteMeeting:string thesis_id:integer path:string
+  496  rails g model meeting_note noteText:string meeting_id:int
+  497  rails g migration add "meeting_id" to "meeting_note"
+  498  rake db:migrate
+  499  sqlite3 db/development.sqlite3
+  500  rake db:migrate
+  501  cd RubymineProjects/tsys/
+  502  rails g migration add_meeting_id_to_meeting_note meeting_id:integer
+  503  rake db:migrate
+  504  rake db:migrate
+  505  sqlite3 db/development.sqlite3
+  506  rake db:migrate
+  507  rails destroy model meeting_note
+  508  rails g model meeting_note noteText:string meeting_id:int
+  509  rake db:migrate
+  510  rake db:rollback
+  511  rake db:migrate
+  512  rake db:rollback
+  513  rake db:rollback
+  514  rake db:rollback
+  515  rake db:migrate
+  516  sqlite3 db/development.sqlite3
+  517  rake db:migrate
+  518  --trace
+  519  rake db:migrate
+  520  sqlite3 db/development.sqlite3
+  521  sqlite3 db/development.sqlite3
+  522  rails destroy model meeting_note
+  523  rails destroy model add_meeting_id_to_meeting_note
+  524  rails g model meeting_note noteText:string meeting_id:integer
+  525  rake db:migrate
+  526  rails destroy model meeting
+  527  rails g model meeting dateMeeting:datetime noteMeeting:string thesis_id:integer path:string
+  528  rake db:migrate
+  529  sqlite3 db/development.sqlite3
+  530  rake db:migrate
+  531  rake routes
+  532  cd 
+  533  history > history.txt
