@@ -1,11 +1,54 @@
 <%= render_title "Sources" , "Aqui puedes ver las fuentes que has subido" %>
 
-<div class="container">
-  <% @sources.each do |s|  %>
-      <%=  render_source s %>
-  <% end %>
 
+
+<div class="container">
+
+  <div class="row">
+    <div class="span9">
+      <% @sources.each do |s|  %>
+          <%=  render_source s %>
+      <% end %>
+    </div>
+    <div class="span3">
+      <h3>Sort results</h3>
+      <ul class="nav nav-tabs nav-stacked">
+        <li >
+          <%= link_to "?sortby=created_at&order=",:id=>"date_asc" do %>
+              <i class="icon-angle-up"></i> date
+          <% end %>
+        </li>
+        <li >
+          <%= link_to "?sortby=created_at&order=DESC",:id=>"date_desc" do %>
+              <i class="icon-angle-down"></i> date
+          <% end %>
+        </li>
+        <li >
+          <%= link_to "?sortby=name&order=" do %>
+              <i class="icon-angle-up"></i> name
+          <% end %>
+        </li>
+        <li >
+          <%= link_to "?sortby=name&order=DESC" do %>
+              <i class="icon-angle-down"></i> name
+          <% end %>
+        </li>
+        <li >
+          <input id="category_filter" type="text" name="<%= :category %>"
+                 autocomplete="off" data-provide="typeahead"  data-source='<%= Source.get_categories.to_json %>' />
+        </li>
+
+      </ul>
+
+    </div>
+  </div>
   <%= link_to "add source", new_source_path, :class=>"btn btn-primary" %>
 
 </div>
+<script>
+  $('#category_filter').change(function(){
+      var value = $('#category_filter').val();
+      window.location = "/sources?filter="+value;
+  })
 
+</script>

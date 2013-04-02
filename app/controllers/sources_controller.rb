@@ -3,8 +3,11 @@ class SourcesController < ApplicationController
   def index
     sort_by = params[:sortby]
     order = params[:order]
+    filter = params[:filter]
     if sort_by
       @sources = Source.order(sort_by << " " << order)
+    elsif filter
+      @sources = Source.where("category LIKE '%#{filter}%'")
     else
       @sources = Source.all
     end

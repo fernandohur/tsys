@@ -37,8 +37,8 @@
       <div class="control-group">
         <%= label_tag :category,nil ,:class=>"control-label",:for=>:category %>
         <div class="controls">
-          <input type="text" name="<%= :category %>"
-                 autocomplete="off" data-provide="typeahead"  data-source='["aplicacion","libro","imagen","sonido","otra","grupo de investigacion"]' />
+          <input placeholder="by category" type="text" name="<%= :category %>"
+                 autocomplete="off" data-provide="typeahead"  data-source='<%= Source.get_default_categories %>' />
         </div>
       </div>
 
