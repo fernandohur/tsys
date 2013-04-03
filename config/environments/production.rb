@@ -67,4 +67,5 @@ Tsys::Application.configure do
 
   config.assets.precompile += %w( fullcalendar.js)
 
+
 end
