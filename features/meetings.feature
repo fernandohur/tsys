@@ -13,7 +13,7 @@ Feature: Meeting management
     Given I am on the create meeting page
     When I enter the note meeting of "fdfafda dadsa"
     And I press "Create"
-    Then I should carlossee "la cita fue exitosamente creada"
+    Then I should carlossee "The meeting has been successfully created"
 
 
   Scenario: when there are no meetings I should see 0 meetings

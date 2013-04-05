@@ -36,7 +36,7 @@ class MeetingsController < ApplicationController
 
     @meeting.path= realPath
     @meeting.save
-    flash[:notice]="la cita fue exitosamente creada"
+    flash[:notice]="The meeting has been successfully created"
     redirect_to @meeting
   end
 
@@ -45,9 +45,9 @@ class MeetingsController < ApplicationController
     meeting.destroy
 
     if (meeting.destroyed?)
-      flash[:notice]="Cita exitosamente eliminada";
+      flash[:notice]="The meeting has been deleted";
     else
-      flash[:error]="No se pudo eliminar la cita"
+      flash[:error]="The meeting couldn't be deleted"
     end
     redirect_to "/meetings"
   end

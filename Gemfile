@@ -13,7 +13,7 @@ end
 gem 'net-ldap'
 
 group :production do
-#  gem 'pg'
+  gem 'pg'
 end
 
 
