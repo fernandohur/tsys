@@ -25,6 +25,8 @@ class SessionsController < ApplicationController
   def logout
     session[:user_id] = nil
     session[:user_type] = nil
+    flash[:success] = "log out successful"
+    redirect_to "/"
   end
 
   def create
