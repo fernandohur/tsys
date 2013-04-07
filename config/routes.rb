@@ -1,30 +1,39 @@
 Tsys::Application.routes.draw do
 
+  #Sessions
+  get "sessions/login"
+  get "sessions/logout"
+  get "sessions/create"
+
+  #Events
   resources :events
 
+  #Pooducts
   resources :products
 
+  #Theses
   resources :theses
   match "/" => "theses#home"
   match "/login" => "theses#login"
   match "/authenticate" => "theses#authenticate"
 
+  #Sources
   resources :sources do
     resources :notes
   end
 
+  #Students
   resources :students
-  resources :theses
 
+  #Meetings
   resources :meetings  do
     resources :meeting_notes
     resources :meeting_tasks
   end
-
   match 'newMeeting' =>'meeting#new'
 
+  #Statics
   get "static/home"
-
   get "static/help"
 
 
