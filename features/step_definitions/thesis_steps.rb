@@ -16,5 +16,18 @@ When /^I click on submit button$/ do
 end
 =end
 
+Given /^I am in the index thesis page$/ do
+  visit('/theses')
+end
+
+Given /^I am a professor managing one or more thesis$/ do
+  Thesis.new(:name =>"pruebaTest", :student_id => 1).save
+  Thesis.new(:name =>"pruebaTest2", :student_id => 1).save
+  visit('/theses')
+end
+
+Given /^I am a professor managing zero thesis$/ do
+  Thesis.delete_all
+end
 
 

@@ -2,17 +2,30 @@
 
 
 <% if @theses.count<1   %>
-      <p>Wow. Scratch that. You are not managing any thesis at the moment professor.</p>
-   <% else
-      @theses.each do |thesis| %>
-        <table>
-          <tr>Name
-            <td><h3><%= thesis.name %></td></h3>
-            <td><%= link_to 'Show', thesis %></td>
-            <td><%= link_to 'Destroy', thesis, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <p>Wow. Scratch that. You are not managing any thesis at the moment professor.</p>
+<% else%>
+
+    <table>
+
+      <tr>
+        <td><b>Name</b></td>
+        <td><b>Author(s)</b></td>
+        <td><b>Show</b></td>
+        <td><b>Destroy</b></td>
+      </tr>
+
+      <%@theses.each do |thesis| %>
+          <tr>
+            <td width="15%"><%= thesis.name %></td>
+            <td width="15%"><%= thesis.student_id %></td>
+            <td width="15%"><%= link_to 'Show', thesis %></td>
+            <td width="15%"><%= link_to 'Destroy', thesis, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
-        </table>
-        <% end %>
+
+
+
+      <% end %>
+    </table>
 <% end %>
 
 
