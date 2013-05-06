@@ -3,6 +3,7 @@ class Product < ActiveRecord::Base
   validates_uniqueness_of :name, :message => "Sorry, you can't have two or more products with the same name."
   belongs_to :Student
   has_one :activity
+  default_scope order('created_at DESC')
 
   def self.search(search)
     if search

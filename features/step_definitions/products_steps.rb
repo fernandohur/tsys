@@ -38,3 +38,9 @@ Given /^Im on products page$/ do
   visit '/products'
 end
 
+Then /^I should see them in order$/ do
+
+ pending
+end
+
+
