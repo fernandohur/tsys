@@ -27,3 +27,20 @@ Feature: Meeting Note management
     Then I should see "This are the notes you have done for a meeting"
     And I should see "note destroyed"
     And I should see "remove"
+
+
+  Scenario: Delete file from the meeting note for an existing meeting when there is no file
+    Given there is only 1 meeting notes with 0 files
+    And I am on the meeting page
+    When I click "notes"
+    And I should see "This are the notes you have done for a meeting"
+    Then I should not see "remove file"
+
+  Scenario: Delete file from the meeting note for an existing meeting when there is 1 file
+    Given there is only 1 meeting notes with 1 files
+    And I am on the meeting page
+    When I click "notes"
+    And I should see "This are the notes you have done for a meeting"
+    When I click "remove file"
+    Then I should see "file remove"
+

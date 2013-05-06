@@ -13,4 +13,19 @@ end
 When /^I enter the meeting's note text  "(.*?)"$/ do |arg1|
   fill_in "meeting_note_noteText", :with => arg1
 end
+
+Given /^there is only (\d+) meeting notes with (\d+) files$/ do |notes, file|
+  Meeting.delete_all
+  (0..meetings.to_i-1).each do |i|
+
+    s=Meeting.new
+    (0..notes.to_i-1).each do |j|
+      if file == 1
+        s.meeting_notes.new(:note=>"note text", :path => "/Users/carlosduque/RubymineProjects/tsys/public/uploads/history.txt")
+      end
+    end
+    s.save
+  end
+end
+
 end

@@ -19,8 +19,22 @@ class MeetingNotesController < ApplicationController
   end
 
   def create
-    meeting_note = MeetingNote.new(params[:meeting_note])
+    meeting_note = MeetingNote.new()
+    meeting_note.noteText= params[:noteText]
     meeting_note.meeting_id= params[:meeting_id]
+    uploaded_io = params[:dataFile]
+    realPath = ""
+    if uploaded_io != nil
+      path = Rails.root.join('public', 'uploads', uploaded_io.original_filename);
+      File.open(path, 'w:ASCII-8BIT') do |file|
+        file.write(uploaded_io.read)
+
+      end
+      realPath = File.absolute_path(path).split("public/")[1]
+    end
+
+    meeting_note.path= realPath
+
     meeting_note.save
     flash[:notice]="Note added"
 
