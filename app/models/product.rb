@@ -8,7 +8,7 @@ class Product < ActiveRecord::Base
     if search
       find(:all,:conditions => ['name LIKE ?',"%#{search}%"], :order => "name")
     else
-      find(:all)
+      find(:all,:order => "name")
     end
   end
 end
