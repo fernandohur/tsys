@@ -1,0 +1,22 @@
+<h1>Welcome back <span class="muted"><%= @professor.nombre %></span></h1>
+<div class="row">
+
+  <div class="span4">
+    <h4> <i class="icon-file"></i>&nbsp; Your theses</h4>
+    <p>These are your theses</p>
+    <ul>
+        <% @professor.theses.each do |t| %>
+            <li><%= link_to t.title, t %></li>
+        <% end %>
+    </ul>
+  </div>
+  <div class="span4">
+    <h4> <i class="icon-user"></i>&nbsp;  Your students </h4>
+    <p>Check out your students</p>
+  </div>
+  <div class="span4">
+    <h4> <i class="icon-calendar"> </i>&nbsp; Your schedule </h4>
+    <p></p>
+  </div>
+
+</div>
