@@ -5,6 +5,15 @@ class SessionsController < ApplicationController
     password = params[:password]
     user_type = params[:user_type]
     session[:user_id]=Student.first
+
+    puts "--------------------------------------------"
+    puts login
+    puts password
+    puts user_type
+    puts session[:user_id]
+    puts Student.first
+    puts "--------------------------------------------"
+
     redirect_to '/'
 
 

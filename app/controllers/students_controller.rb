@@ -9,15 +9,12 @@ class StudentsController < ApplicationController
   end
 
   def show
-    @student=Student.find( params[:id])
+    @student=Student.find(session[:user_id])
   end
 
   def create
 
     @search = Student.find_by_username(params[:username])
-
-
-
 
       @student = Student.new
       @student.name = params[:student_name]
@@ -34,9 +31,6 @@ class StudentsController < ApplicationController
      flash[:notice]="Student NOT Registed"
      redirect_to "/students"
    end
-
-
-
 
 
   end

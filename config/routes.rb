@@ -4,6 +4,8 @@ Tsys::Application.routes.draw do
   match '/login' => 'sessions#login' , :as=> :post
   match '/logout' => 'sessions#logout'
 
+  match '/sources' => 'sources#index'
+
   #Events
   resources :events
 
