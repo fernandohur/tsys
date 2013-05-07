@@ -10,6 +10,11 @@ Scenario: when there are products...I should see them
   And Im on products page
   Then I should not see "It seems you do not have any products uploaded."
 
+  Scenario: when there are products...I should see them in order
+    Given there are 1 or more products
+    And Im on products page
+    Then I should see them in order
+
 Scenario: link to create a new product should work
   Given Im on products page
   And I click "Create a new product"

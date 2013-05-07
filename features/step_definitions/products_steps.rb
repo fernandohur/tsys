@@ -28,3 +28,19 @@ When /^I click on delete$/ do
   click_link("Delete")
 end
 =end
+
+Given /^there are 1 or more products$/ do
+  visit('/products')
+
+end
+
+Given /^Im on products page$/ do
+  visit '/products'
+end
+
+Then /^I should see them in order$/ do
+
+ pending
+end
+
+

@@ -3,6 +3,17 @@ class Source < ActiveRecord::Base
   belongs_to :thesis
   has_many :notes
 
+  def Source.get_categories
+    categories = []
+    Source.all.each do |s|
+      categories.append(s.category)
+    end
+    return categories.to_set
 
+  end
+
+  def Source.get_default_categories
+    return ["aplicacion","libro","imagen","sonido","otra","grupo de investigacion"]
+  end
 
 end

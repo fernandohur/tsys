@@ -9,33 +9,70 @@
       <a class="brand" href="/">T-sys</a>
       <div class="nav-collapse collapse">
         <ul class="nav">
-          <li <%= url_starts_with request,theses_path %> >
-            <%= link_to theses_path do %>
-                <i class="icon-file"></i> thesis
-            <% end %>
-          </li>
-          <li <%= url_starts_with request, students_path %>>
-            <%= link_to students_path do%>
-                <i class="icon-user"></i> students
-            <% end %>
-          </li>
-          <li <%= url_starts_with request,sources_path %>>
-            <%= link_to sources_path do%>
-                <i class="icon-book"></i> sources
-            <% end %>
-          </li>
-          <li <%= url_starts_with request, products_path %>>
-            <%=  link_to products_path do %>
-                <i class="icon-folder-open"></i> Products
-            <% end %>
-          </li>
-          <li <%= url_starts_with request,meetings_path %>>
-            <%= link_to events_path do%>
-                <i class="icon-calendar"></i> meetings
-            <% end %>
-          </li>
+          <% if request.session[:user_id] %>
+              <li <%= url_starts_with request,theses_path %> >
+                <%= link_to theses_path do %>
+                    <i class="icon-file"></i> thesis
+                <% end %>
+              </li>
+              <li <%= url_starts_with request, students_path %>>
+                <%= link_to students_path do%>
+                    <i class="icon-user"></i> students
+                <% end %>
+              </li>
+              <li <%= url_starts_with request,sources_path %>>
+                <%= link_to sources_path do%>
+                    <i class="icon-book"></i> sources
+                <% end %>
+              </li>
+              <li <%= url_starts_with request, products_path %>>
+                <%=  link_to products_path do %>
+                    <i class="icon-folder-open"></i> Products
+                <% end %>
+              </li>
+              <li <%= url_starts_with request,meetings_path %>>
+                <%= link_to events_path do%>
+                    <i class="icon-calendar"></i> meetings
+                <% end %>
+              </li>
+          <% else %>
+            <li>
+              <a href="#loginModal" role="button" data-toggle="modal">Login</a>
+            </li>
+
+          <% end %>
         </ul>
       </div><!--/.nav-collapse -->
     </div>
+  </div>
+</div>
+
+
+
+<!-- Login modal -->
+<div id="loginModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Login to T-Sys</h3>
+  </div>
+  <div class="modal-body">
+    <%= form_tag( '/login',:method=>:post) do %>
+        <p>
+          <%= label_tag :login %>
+          <%= text_field_tag :login %>
+        </p>
+        <p>
+          <%= label_tag :password %>
+          <%= text_field_tag :password %>
+        </p>
+        <p>
+          <%= radio_button_tag(:user_type, :student) %>
+          <%= radio_button_tag(:user_type, :professor) %>
+        </p>
+        <%= submit_tag "login" ,:class=> "btn btn-primary" %>
+    <% end %>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
   </div>
 </div>

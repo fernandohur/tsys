@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(:version => 20130423211431) do
   end
 
   create_table "meeting_notes", :force => true do |t|
+<<<<<<< HEAD
     t.string   "noteText"
     t.integer  "meeting_id"
     t.datetime "created_at", :null => false
@@ -63,6 +64,10 @@ ActiveRecord::Schema.define(:version => 20130423211431) do
     t.integer  "meeting_id"
     t.boolean  "done"
     t.datetime "expireDate"
+=======
+    t.string   "text"
+    t.integer  "id_meeting"
+>>>>>>> master
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -71,7 +76,6 @@ ActiveRecord::Schema.define(:version => 20130423211431) do
     t.datetime "dateMeeting"
     t.string   "noteMeeting"
     t.integer  "thesis_id"
-    t.string   "path"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
