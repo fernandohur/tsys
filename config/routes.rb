@@ -1,8 +1,8 @@
 Tsys::Application.routes.draw do
 
   #Sessions
-  match "login" => "sessions#login"
-  match "logout" => "sessions#logout"
+  match '/login' => 'sessions#login' , :as=> :post
+  match '/logout' => 'sessions#logout'
 
   #Events
   resources :events
@@ -12,7 +12,7 @@ Tsys::Application.routes.draw do
 
   #Theses
   resources :theses
-  match "/" => "theses#home"
+  match '/' => 'theses#home'
   #match "/login" => "theses#login"
   #match "/authenticate" => "theses#authenticate"
 
