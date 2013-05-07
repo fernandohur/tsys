@@ -2,4 +2,17 @@ class Student < ActiveRecord::Base
   attr_accessible :name, :password, :thesis_id, :username
   belongs_to :thesis
   validates_uniqueness_of :username
+
+  def Student.auth(username, password)
+    student = Student.find_by_username(username)
+    if student
+      pass = student.password
+      if pass==password
+        return student
+      end
+    end
+    return nil
+  end
+
+
 end
