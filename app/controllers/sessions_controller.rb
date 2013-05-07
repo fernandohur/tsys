@@ -5,6 +5,7 @@ class SessionsController < ApplicationController
     password = params[:password]
     user_type = params[:user_type]
     session[:user_id]=Student.first
+    session[:user_type]=user_type
     redirect_to '/'
 
 

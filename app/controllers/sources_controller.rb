@@ -19,10 +19,15 @@ class SourcesController < ApplicationController
   end
 
   def new
-    @source = Source.new
+    if session[:user_type]=="student"
+      @source = Source.new
+    else
+      not_type
+    end
   end
 
   def create
+    if session[:user_type]=="student"
     @source = Source.new
 
     @source.descripccion = params[:descripccion]
@@ -42,9 +47,13 @@ class SourcesController < ApplicationController
     @source.save
     flash[:notice]="la fuente fue exitosamente creada"
     redirect_to @source
+    else
+      not_type
+    end
   end
 
   def destroy
+    if session[:user_type]=="student"
     source = Source.find(params[:id])
     source.destroy
 
@@ -54,6 +63,13 @@ class SourcesController < ApplicationController
       flash[:error]="No se pudo eliminar la fuente"
     end
     redirect_to "/sources"
+    else
+      not_type
+    end
+  end
+
+  def not_type
+    flash[:notice] = "You don't have the permissions required to do this action"
   end
 
 end
