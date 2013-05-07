@@ -4,14 +4,22 @@ class SourcesController < ApplicationController
     sort_by = params[:sortby]
     order = params[:order]
     filter = params[:filter]
-    if sort_by
-      @sources = Source.order(sort_by << " " << order)
-    elsif filter
-      @sources = Source.where("category LIKE '%#{filter}%'")
-    else
-      @sources = Source.all
-    end
 
+    if session[:user_type] = :student
+      puts "-------------------------------------------- adriana-------------"
+      puts session[:user_type]
+      puts "-------------------------------------------- adriana-------------"
+      puts Student.find_by_username(session[:login]).thesis_id
+    end
+    #Searchs only the sources of the student
+
+    if sort_by
+      @sources = (Source.where("thesis_id LIKE " +(Student.find_by_username(session[:login]).thesis_id).to_s)).order(sort_by << " " << order)
+    elsif filter
+      @sources = Source.where("category LIKE '%#{filter}%' AND thesis_id LIKE " +(Student.find_by_username(session[:login]).thesis_id).to_s)
+    else
+      @sources = Source.where("thesis_id LIKE " +(Student.find_by_username(session[:login]).thesis_id).to_s)
+    end
   end
 
   def show

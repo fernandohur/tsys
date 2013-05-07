@@ -48,7 +48,20 @@
               <i class="icon-user"></i> profile
           <% end %>
         </li>
+        <li >
+          <%= link_to "?sortby=name&order=" do %>
+              <i class="icon-angle-up"></i> order by name
+          <% end %>
+        </li>
+        <li >
+          <%= link_to "?sortby=name&order=DESC" do %>
+              <i class="icon-angle-down"></i> order by name
+          <% end %>
+        </li>
       </ul>
 
     </div>
+
+
+
 </div>

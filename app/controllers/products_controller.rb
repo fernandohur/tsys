@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.search(params[:search])
+    @products = Product.where("student_id LIKE " +(Student.find_by_username(session[:login]).id).to_s)
     @search = params[:search]
     respond_to do |format|
       format.html # index.html.erb
@@ -43,6 +43,8 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new
     @product.name = params[:name]
+    @product.student_id = Student.find_by_username(session[:login]).id
+
     if !@product.valid?
       respond_to do |format|
         format.html { redirect_to @product, notice: 'Sorry. Can not have two or more products with the same name.' }

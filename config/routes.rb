@@ -4,8 +4,6 @@ Tsys::Application.routes.draw do
   match '/login' => 'sessions#login' , :as=> :post
   match '/logout' => 'sessions#logout'
 
-  match '/sources' => 'sources#index'
-
   #Events
   resources :events
 
@@ -31,6 +29,7 @@ Tsys::Application.routes.draw do
     resources :meeting_notes
     resources :meeting_tasks
   end
+
   match 'newMeeting' =>'meeting#new'
 
   #Statics

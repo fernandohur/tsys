@@ -37,8 +37,8 @@
                     <% end %>
                   </li>
 
-                      <%= link_to student_path(@student) do%>
-                          Hello, <%= @student.name %>
+                      <%= link_to student_path(session[:user_id]) do%>
+                          Hello, <%= session[:user_id].name %>
                       <% end %>
 
 

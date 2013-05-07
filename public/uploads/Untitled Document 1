@@ -1,0 +1,31 @@
+1. Unit: pruebas a los modelos: le he hecho pruebas a sources
+2. Functional: pruebas a los controladores: le he hecho pruebas a l sources controller, en general es para ver que estén redirigiendo bien
+, aquí también entran las pruebas a las vistas, no he hecho todavía
+
+
+
+
+Q1: Unity and Component Test
+El primero cuandra es di, literalmente, TDD. Ya hemos estado haciendo esto. Podemos exgiri que hayan commits de pruebas y despues commits de las funcionalidades, si me hago entender? En el branch de cada uno, primero deben haber commits de las pruebas y despues si de las tareas terminadas. Y eso lo podemos mostrar en la presentacion!
+
+Q2: Tecnology-facing tests
+Tienen que ver con ambiente de desarollo, nada del otro mundo. En el postmorte, en este cuadrante, podemos hablar de lo sgte:
+1. IDE: Todo decidimos utilizar Ruby/Rails en Linux Ubuntu
+2.Manejo de configuraciones: Se decidio utilizar una version especifica de RAILS para compatibilidad.
+3. Build: aca podemos hablar de como yo como Scrum Master es el que se encarga de mandar a produccion (Heroku) lo que este en el branch Master al final de los Sprint.
+4. Framework de pruebas: RSPEC + Cucumber/Capybara
+
+Pienso que aca es sencillamente hablar, esto ya lo hacemos asi q aja.
+
+
+Q3: Business-facing Tests
+Definir cualidades externas del cliente:
+Esto lo podemos hacer de dos formas. Un "antes"y un "despues".
+Lo que dice es que, basicamente, el Product Owner tiene infuencia en el desarrollo de cada tarea. Todo esto se basa en necesidades de procesos de negocio.
+El "antes" quiere decir que se interroga antes al usuario/cliente y se crea un diagrama de flujo, o sea como que pa tal problema se tiene claro como quiere que el usuario sea la interaccion en interfaz!
+El "despues" es, sencillamente, realizar pruebas de aceptacion de User Experience, pero supuestamente eso ya esta en nuestro DoD.
+
+Q4: Req no funcionales
+No se habla mucho de esto en la presentacion. Pero aja se refiere a cosas como seguridad, escalabilidad etc. Lo que pienso yo es que definir unas pruebas de req no funcionales al terminar una tarea. Si, digamos, un estudiantes puede acceder a una pagina dondo solo podria estar un profesor, eso es una falla de seguridad. No se me ocurre mas nada jaja
+
+ 

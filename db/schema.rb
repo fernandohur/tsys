@@ -51,25 +51,11 @@ ActiveRecord::Schema.define(:version => 20130423211431) do
   end
 
   create_table "meeting_notes", :force => true do |t|
-<<<<<<< HEAD
-    t.string   "noteText"
-    t.integer  "meeting_id"
+    t.string   "text"
+    t.integer  "id_meeting"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "path"
-  end
-
-  create_table "meeting_tasks", :force => true do |t|
-    t.string   "task"
-    t.integer  "meeting_id"
-    t.boolean  "done"
-    t.datetime "expireDate"
-=======
-    t.string   "text"
-    t.integer  "id_meeting"
->>>>>>> master
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
   end
 
   create_table "meetings", :force => true do |t|
