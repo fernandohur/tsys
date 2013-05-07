@@ -1,6 +1,5 @@
+<% user_type = get_user_type() %>
 <%= render_title "Sources" , "Aqui puedes ver las fuentes que has subido" %>
-
-
 
 <div class="container">
 
@@ -42,13 +41,15 @@
 
     </div>
   </div>
-  <%= link_to "add source", new_source_path, :class=>"btn btn-primary" %>
+  <% if user_type =="student" then  %>
+      <%= link_to "add source", new_source_path, :class=>"btn btn-primary" %>
+  <% end %>
 
 </div>
 <script>
-  $('#category_filter').change(function(){
-      var value = $('#category_filter').val();
-      window.location = "/sources?filter="+value;
-  })
+    $('#category_filter').change(function(){
+        var value = $('#category_filter').val();
+        window.location = "/sources?filter="+value;
+    })
 
 </script>
