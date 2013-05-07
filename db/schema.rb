@@ -51,17 +51,8 @@ ActiveRecord::Schema.define(:version => 20130331213959) do
   end
 
   create_table "meeting_notes", :force => true do |t|
-    t.string   "noteText"
-    t.integer  "meeting_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "meeting_tasks", :force => true do |t|
-    t.string   "task"
-    t.integer  "meeting_id"
-    t.boolean  "done"
-    t.datetime "expireDate"
+    t.string   "text"
+    t.integer  "id_meeting"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -70,7 +61,6 @@ ActiveRecord::Schema.define(:version => 20130331213959) do
     t.datetime "dateMeeting"
     t.string   "noteMeeting"
     t.integer  "thesis_id"
-    t.string   "path"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
