@@ -6,5 +6,10 @@ class Thesis < ActiveRecord::Base
   has_many :activities
   has_many :meetings
   belongs_to :student
+  belongs_to :professor
+
+  def title
+    name
+  end
 
 end
