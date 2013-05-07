@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
   end
 
   def is_prof
+    puts '-----------------'
+    puts session[:user_type]
     session[:user_type]==:professor
   end
 
