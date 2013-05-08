@@ -1,0 +1,39 @@
+<% if !@able %>
+    <br xmlns="http://www.w3.org/1999/html"><br><br>
+    <div class="container">
+      <div class="span7 offset2 well">
+        <strong>ACCESS DENIED.</strong> Sorry! You must be logged in to access your activities.
+      </div>
+    </div>
+<% else %>
+    <%= render_title "My activities","Hi"+@student.name+"! This are you activities for your thesis." %>
+    <% if @activities.blank? %>
+        <br><br><br>
+        <div class="container">
+          <div class="span7 offset2 well">
+            <p>Sorry! It seems you do not have any thesis assigned. Contact you professor, he is the one that can
+            add you to a thesis process.</p>
+          </div>
+        </div>
+
+    <% else %>
+        <% @activities.each do |activity| %>
+            <tr>
+              <td><%= link_to 'Show', activity %></td>
+              <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
+              <td><%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+        <% end %>
+    <% end %>
+
+
+<% end %>
+
+
+
+
+</table>
+
+<br />
+
+<%= link_to 'New Activity', new_activity_path %>

@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
         session[:thesis_id]=user.thesis_id
       end
     end
-
+      
     if user!=nil
       session[:user_id] = user.id
       session[:user_type] = user_type.intern

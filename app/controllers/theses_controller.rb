@@ -8,7 +8,15 @@ class ThesesController < ApplicationController
   # GET /theses
   # GET /theses.json
   def index
-    @theses = Thesis.all
+
+    if session["user_type"]=="professor"
+      @theses = Thesis.all
+      @professor = Professor.find(session["user_id"])
+    elsif session["user_type"]=="student"
+           @student = Student.find(session["user_id"])
+           @thesis = @student.thesis
+    end
+
 
     respond_to do |format|
       format.html # index.html.erb
@@ -49,29 +57,22 @@ class ThesesController < ApplicationController
   def create
 
     @thesis = Thesis.new(params[:thesis])
+
     respond_to do |format|
       if @thesis.save
-        @thesis.activities.create(name: "Revision bibliografica inicial")
-        @thesis.activities.last.create_product(name: "Documento tecnico con revision del estado del arte")
+        @thesis.activities.create(name: "Initial bibliographic review", desc: "Description of this activity", state: "To Do")
 
-        @thesis.activities.create(name: "Planteamiento del Problema")
-        @thesis.activities.last.create_product(name: "Problema, hipotesis, preguntas, relevancia y pertinencia del problema")
+        @thesis.activities.create(name: "Problem descripction",desc: "Description of this activity", state: "To Do")
 
-        @thesis.activities.create(name: "Objetivos de la Tesis")
-        @thesis.activities.last.create_product(name: "Objetivo general y objetivos especificos")
+        @thesis.activities.create(name: "Thesis objectives",desc: "Description of this activity", state: "To Do")
 
-        @thesis.activities.create(name: "Estrategia de Solucion")
-        @thesis.activities.last.create_product(name: "Estrategia propuesta para la solucion del problema")
+        @thesis.activities.create(name: "Solution strategy",desc: "Description of this activity", state: "To Do")
 
-        @thesis.activities.create(name: "Implementacion")
-        @thesis.activities.last.create_product(name: "Documentos y software para implementar la solucion")
+        @thesis.activities.create(name: "Implementation",desc: "Description of this activity", state: "To Do")
 
-        @thesis.activities.create(name: "Validacion")
-        @thesis.activities.last.create_product(name: "Disenio de experimentos, resultados y analisis de estos")
+        @thesis.activities.create(name: "Validation",desc: "Description of this activity", state: "To Do")
 
-        @thesis.activities.create(name: "Documentacion y Reporte de Tesis")
-        @thesis.activities.last.create_product(name: "Documento de Tesis")
-
+        @thesis.activities.create(name: "Final thesis documentation and reports",desc: "Description of this activity", state: "To Do")
 
 
         format.html { redirect_to @thesis, notice: 'Thesis was successfully created.' }

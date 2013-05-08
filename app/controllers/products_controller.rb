@@ -2,7 +2,8 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.where("student_id LIKE " +(Student.find_by_username(session[:login]).id).to_s)
+    @isProfessor = session[:user_type]=="Professor"
+    @products = Product.search(params[:search])
     @search = params[:search]
     respond_to do |format|
       format.html # index.html.erb
@@ -46,10 +47,17 @@ class ProductsController < ApplicationController
     @product.student_id = Student.find_by_username(session[:login]).id
 
     if !@product.valid?
+      flash[:error] = "Sorry. Can not have two or more products with the same name"
       respond_to do |format|
-        format.html { redirect_to @product, notice: 'Sorry. Can not have two or more products with the same name.' }
         format.json { render json: @product.errors, status: :unprocessable_entity }
       end
+    elsif params[:file].blank?
+      flash[:error] = "You MUST upload a file in order to create a product."
+      respond_to do |format|
+        format.html { redirect_to @product }
+        format.json { render json: @product.errors, status: :unprocessable_entity }
+      end
+
     else
       uploaded_io = params[:file]
       path = Rails.root.join('public', 'products', uploaded_io.original_filename);

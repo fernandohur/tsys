@@ -105,9 +105,16 @@
         </p>
         <p>
           <%= label_tag :password %>
-          <%= text_field_tag :password %>
+          <%= password_field_tag :password %>
         </p>
+<<<<<<< HEAD
         <p><small> student <%= radio_button_tag(:user_type, :student) %></small><small> professor <%= radio_button_tag(:user_type, :professor) %> </small></p>
+=======
+        <p>
+          <%= radio_button_tag(:user_type, "student") %> Soy estudiante.
+          <%= radio_button_tag(:user_type, "professor" ) %> Soy profesor.
+        </p>
+>>>>>>> Jose
         <%= submit_tag "login" ,:class=> "btn btn-primary" %>
     <% end %>
   </div>

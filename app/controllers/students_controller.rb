@@ -10,6 +10,7 @@ class StudentsController < ApplicationController
 
   def show
     @student=Student.find(session[:user_id])
+
   end
 
   def create

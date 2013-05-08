@@ -1,19 +1,11 @@
 <p id="notice"><%= notice %></p>
+<%= render_title "Thesis:  "+@thesis.name,"" %>
 
-<p>
-  <h2> <%= @thesis.name %></h2>
-</p>
-
-<ul class="activities">
+<div class="container">
+  <div class="span5 offset2 well">
   <% @activities.each do |activity| %>
-      <li>
-       <h4> <%= activity.name %></h4>
-             <%  prdt =  activity.product
-                l = prdt.send("file_url")
-                if l.blank? %>
-                <p>     It seems the student hasn't upload any file in this activity!</p> </li>
-           <% end %>
+        <%= link_to activity.name,thesis_activity_path(activity), :class => "btn btn-primary btn-block" %><br>
   <% end %>
-</ul>
+  </div>
+</div>
 
-<%= link_to 'Back', theses_path,:class=>"btn btn-secondary" %>
