@@ -6,8 +6,6 @@ class ApplicationController < ActionController::Base
   end
 
   def is_prof
-    puts '-----------------'
-    puts session[:user_type]
     session[:user_type]==:professor
   end
 
@@ -18,6 +16,14 @@ class ApplicationController < ActionController::Base
   def send_home_with_flash(flash_msg)
     flash[:notice]=flash_msg
     redirect_to '/'
+  end
+
+  def is_signed_in
+    session[:user_id]!=nil
+  end
+
+  def get_thesis_id
+    session[:thesis_id]
   end
 
 end

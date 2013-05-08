@@ -1,12 +1,15 @@
-<p id="notice"><%= notice %></p>
-
 
 <h2><%= @event.title %></h2>
 
-
 <p>
-  From <%= @event.start%> to <%= @event.end %>
+    This event was created by <b><%= @event.thesis.student.name %></b> for his thesis '<b><%= @event.thesis.name %></b>'
+</p>
 
+<h4>Contact <%= @event.thesis.student.name %></h4>
+<p>To contact fernando you can send him an email at <%= @event.thesis.student.username %>@uniandes.edu.co</p>
+<h4>When</h4>
+<p>
+  From: <%= pretty_date( @event.start) %> to <%= pretty_date( @event.end) %>
 </p>
 
 

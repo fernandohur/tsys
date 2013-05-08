@@ -5,32 +5,34 @@ class SessionsController < ApplicationController
     password = params[:password]
     user_type = params[:user_type]
 
-    puts password + ' ' + login + ' ' + user_type
 
-    if user_type == :professor
+    if user_type == :professor.to_s
       user = Professor.auth login, password
     else
       user = Student.auth login, password
+      if user!=nil
+        session[:thesis_id]=user.thesis_id
+      end
     end
 
-    if user == nil
-      flash[:notice] = 'User not found'
-
-    else
+    if user!=nil
       session[:user_id] = user.id
-      session[:user_type] = user_type
+      session[:user_type] = user_type.intern
+      if is_prof
+        redirect_to '/professors/me'
+      else
+        redirect_to '/'
+      end
+    else
+      send_home_with_flash 'username or password not found '
     end
-    redirect_to '/'
+
   end
 
   def logout
     session[:user_id] = nil
     session[:user_type] = nil
-    flash[:notice] = "log out successful"
-    redirect_to "/"
+    send_home_with_flash 'log out successful'
   end
 
-  def get_student(login,password)
-    Student.first
-  end
 end

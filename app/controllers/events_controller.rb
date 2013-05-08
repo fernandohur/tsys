@@ -2,7 +2,13 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    if is_prof
+      @events = Professor.find(get_user_id).get_events
+    elsif is_student
+      @events = Student.find(get_user_id).get_events
+    else
+      send_home_with_flash 'please sign in first'
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -24,12 +30,16 @@ class EventsController < ApplicationController
   # GET /events/new
   # GET /events/new.json
   def new
-    @event = Event.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @event }
+    if is_signed_in
+      @event = Event.new
+      respond_to do |format|
+        format.html # new.html.erb
+        format.json { render json: @event }
+      end
+    else
+      send_home_with_flash 'only users that have signed in can create events'
     end
+
   end
 
   # GET /events/1/edit
@@ -41,7 +51,7 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new(params[:event])
-
+    @event.thesis_id = get_thesis_id
     respond_to do |format|
       if @event.save
         format.html { redirect_to @event, notice: 'Event was successfully created.' }

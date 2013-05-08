@@ -15,4 +15,24 @@ class Professor < ActiveRecord::Base
 
   end
 
+  def get_students
+    students = []
+    theses.each do |t|
+      student = t.student
+      students.push(student)
+    end
+    return students
+  end
+
+  def get_events
+    events = []
+    theses.each do |t|
+      tmp_events = t.events
+      tmp_events.each do |e|
+        events.push(e)
+      end
+    end
+    return events
+  end
+
 end
