@@ -12,7 +12,11 @@
 <div class="row" xmlns="http://www.w3.org/1999/html">
   <div class="span9">
     <% if @products.blank? %>
+        <% if session[:user_type]=='student' %>
         <p>It seems you do not have any products uploaded.</p>
+            <% else %>
+            <p>It seems this student doesn't have any products uploaded.</p>
+        <% end %>
     <% else %>
     <table class="table table-hover table-bordered table-striped" data-provides="rowlink">
       <thead>
@@ -32,11 +36,14 @@
     <div class="span3">
       <h3>Helpful links</h3>
       <ul class="nav nav-tabs nav-stacked">
+
+        <% if session[:user_type] == 'student' %>
         <li >
-          <%= link_to new_product_path do %>
-              <i class="icon-file"></i> Create a new product
-          <% end %>
+            <%= link_to new_product_path do %>
+            <i class="icon-file"></i> Create a new product
+            <% end %>
         </li>
+        <% end %>
         <li>
           <%= link_to"#" do %>
               <i class="icon-user"></i> profile

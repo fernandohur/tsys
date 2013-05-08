@@ -11,7 +11,7 @@
         <ul class="nav">
           <% if request.session[:user_id] %>
 
-                <% if session[:user_type] = :student %>
+                <% if session[:user_type] == :student.to_s %>
 
                   <li <%= url_starts_with request,sources_path %> >
                     <%= link_to sources_path do %>
@@ -36,9 +36,8 @@
                         <i class="icon-calendar"></i> monitoring&tasks
                     <% end %>
                   </li>
-
                       <%= link_to student_path(session[:user_id]) do%>
-                          Hello, <%= session[:user_id].name %>
+
                       <% end %>
 
 
@@ -59,14 +58,9 @@
                         <i class="icon-calendar"></i> meetings
                     <% end %>
                   </li>
-
-
-                    <%= link_to student_path(@student) do%>
-                        Cambiar, <%= @student.name %>
-                    <% end %>
-
-
-
+                  <%= link_to professor_path(session[:user_id]) do%>
+                      Hello, <%= Professor.find(session[:user_id]).nombre %>
+                  <% end %>
               <% end %>
 
 

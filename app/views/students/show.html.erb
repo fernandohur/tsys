@@ -1,8 +1,7 @@
 
-<% if session[:user_type] = :student %>
+<% if session[:user_type] == :student.to_s %>
 
     <%= render_title @student.name ,"" %>
-    <%= @current_user %>
 
     <div class="row">
 
@@ -29,5 +28,6 @@
       </div>
     </div>
 
+    <%= link_to 'Back', students_path, :class=>"btn btn-secondary" %>
 <% end %>
 

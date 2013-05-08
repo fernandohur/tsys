@@ -10,7 +10,7 @@
 
       <tr>
         <td><b>Name</b></td>
-        <td><b>Author(s)</b></td>
+        <td><b>Author (student)</b></td>
         <td><b>Show</b></td>
         <td><b>Destroy</b></td>
       </tr>
@@ -22,7 +22,7 @@
 
             <% @arrayStudents= Student.find_all_by_thesis_id(thesis.id)%>
             <% @arrayStudents.each do |student|  %>
-                  <%=  student.name %>,
+                  <%=  student.name %>
             <% end%>
 
             </td>

@@ -9,6 +9,7 @@ class ProductsController < ApplicationController
       format.html # index.html.erb
       format.json { render json: @products }
     end
+
   end
 
   # GET /products/1

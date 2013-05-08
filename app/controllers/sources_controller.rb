@@ -5,11 +5,8 @@ class SourcesController < ApplicationController
     order = params[:order]
     filter = params[:filter]
 
-    if session[:user_type] = :student
-      puts "-------------------------------------------- adriana-------------"
-      puts session[:user_type]
-      puts "-------------------------------------------- adriana-------------"
-      puts Student.find_by_username(session[:login]).thesis_id
+    if session[:user_type] == "student"
+      puts Student.find(session[:user_id]).thesis_id
     end
     #Searchs only the sources of the student
 
