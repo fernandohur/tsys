@@ -29,22 +29,26 @@ class SourcesController < ApplicationController
 
   def create
     if is_student
+      @source = Source.new(params[:source])
       @student = Student.find(session[:user_id])
-      @source = Source.new
 
-      @source.descripccion = params[:descripccion]
-      @source.name = params[:name]
-      @source.thesis_id = @student.thesis_id
+      thesis = @student.thesis_id
+      if thesis
+        @source.thesis_id = @student.thesis_id
+      end
       @source.category = params[:category]
 
       uploaded_io = params[:dataFile]
+      realPath = ""
+      if uploaded_io != nil
+        path = Rails.root.join('public', 'uploads', uploaded_io.original_filename);
+        File.open(path, 'w:ASCII-8BIT') do |file|
+          file.write(uploaded_io.read)
 
-      path = Rails.root.join('public', 'uploads', uploaded_io.original_filename);
-      File.open(path, 'w:ASCII-8BIT') do |file|
-        file.write(uploaded_io.read)
-
+        end
+        realPath = File.absolute_path(path).split("public/")[1]
       end
-      realPath = File.absolute_path(path).split("public/")[1]
+
       @source.path= realPath
 
       if @source.save
