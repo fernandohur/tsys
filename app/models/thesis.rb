@@ -1,5 +1,6 @@
 class Thesis < ActiveRecord::Base
   attr_protected
+  attr_accessible :name, :student_id, :professor_id
   validates :name, :uniqueness => true
   validates_length_of :name, :minimum => 5, :maximum => 15, :allow_blank => false
   validates_presence_of :student_id, :professor_id
@@ -9,6 +10,7 @@ class Thesis < ActiveRecord::Base
   has_many :events
   has_many :student
   belongs_to :professor
+  belongs_to :student
 
 
   def title
