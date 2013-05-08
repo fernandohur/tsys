@@ -45,10 +45,17 @@ class ProductsController < ApplicationController
     @product = Product.new
     @product.name = params[:name]
     if !@product.valid?
+      flash[:error] = "Sorry. Can not have two or more products with the same name"
       respond_to do |format|
-        format.html { redirect_to @product, notice: 'Sorry. Can not have two or more products with the same name.' }
         format.json { render json: @product.errors, status: :unprocessable_entity }
       end
+    elsif params[:file].blank?
+      flash[:error] = "You MUST upload a file in order to create a product."
+      respond_to do |format|
+        format.html { redirect_to @product }
+        format.json { render json: @product.errors, status: :unprocessable_entity }
+      end
+
     else
       uploaded_io = params[:file]
       path = Rails.root.join('public', 'products', uploaded_io.original_filename);
