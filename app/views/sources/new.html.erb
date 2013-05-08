@@ -1,12 +1,8 @@
-<<<<<<< HEAD
 <% user_type = get_user_type() %>
-<%= render_title "Ingresar Fuente", "ingresa los datos para agregarle una fuente a tu tesis" %>
-=======
 <%= render_title 'Ingresar Fuente', 'ingresa los datos para agregarle una fuente a tu tesis' %>
->>>>>>> origin/fer-dux
 <div class="container">
 
-  <% if user_type =="student" then  %>
+  <% if user_type == :student then  %>
       <%= form_for @source,:url => {:validate => true, :action => "index" }, :html => {:multipart=>"true"} do |f|%>
           <div class="control-group">
             <%= label_tag :name,nil ,:class=>"control-label",:for=>:name %>

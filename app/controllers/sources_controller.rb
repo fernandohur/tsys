@@ -19,23 +19,16 @@ class SourcesController < ApplicationController
   end
 
   def new
-<<<<<<< HEAD
-    if session[:user_type]=="student"
+    if is_student
       @source = Source.new
     else
       not_type
-=======
-    if session[:user_type] == :student
-      @source = Source.new
-    else
-      flash[:notice]="professors can't add sources, sorry :("
-      redirect_to '/'
->>>>>>> origin/fer-dux
     end
   end
 
+
   def create
-    if session[:user_type]=="student"
+    if is_student
       @student = Student.find(session[:user_id])
       @source = Source.new
 
@@ -66,7 +59,7 @@ class SourcesController < ApplicationController
   end
 
   def destroy
-    if session[:user_type]=="student"
+    if is_student
       source = Source.find(params[:id])
       source.destroy
 
@@ -83,6 +76,7 @@ class SourcesController < ApplicationController
 
   def not_type
     flash[:notice] = "You don't have the permissions required to do this action"
+    redirect_to '/sources'
   end
 
 end

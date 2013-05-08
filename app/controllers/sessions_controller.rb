@@ -4,14 +4,6 @@ class SessionsController < ApplicationController
     login = params[:login]
     password = params[:password]
     user_type = params[:user_type]
-<<<<<<< HEAD
-    session[:user_id]=Student.first
-    session[:user_type]=user_type
-    redirect_to '/'
-=======
->>>>>>> origin/fer-dux
-
-
     if user_type == :professor.to_s
       user = Professor.auth login, password
     else

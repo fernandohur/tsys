@@ -6,7 +6,7 @@
   <%= link_to source_path(source),:class=>"btn btn-success" do %>
       <i class="icon-eye-open"></i> view
   <% end %>
-  <% if user_type =="student" then  %>
+  <% if user_type == :student then  %>
       <%= link_to edit_source_path(source),:class=>"btn btn-info" do %>
           <i class="icon-edit"></i> edit
       <% end %>
@@ -14,7 +14,7 @@
   <%= link_to source_notes_path(source),:class=>"btn btn-info" do %>
       <i class="icon-pencil"></i> notes
   <% end %>
-  <% if user_type =="student" then  %>
+  <% if user_type ==:student then  %>
       <%= link_to source, method: :delete, :class=>"btn btn-danger" do %>
           <i class="icon-trash"></i> remove
       <% end %>

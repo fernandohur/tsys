@@ -11,11 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(:version => 20130423211431) do
-=======
 ActiveRecord::Schema.define(:version => 20130507234125) do
->>>>>>> origin/fer-dux
 
   create_table "MeetingTask", :force => true do |t|
     t.boolean  "done"
