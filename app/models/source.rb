@@ -3,6 +3,9 @@ class Source < ActiveRecord::Base
   belongs_to :thesis
   has_many :notes
 
+  validates :name, :presence => true
+  validates :descripccion, :length => {:minimum => 10}
+
   def Source.get_categories
     categories = []
     Source.all.each do |s|

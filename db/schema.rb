@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130423211431) do
+ActiveRecord::Schema.define(:version => 20130507234125) do
 
   create_table "MeetingTask", :force => true do |t|
     t.boolean  "done"
@@ -48,11 +48,27 @@ ActiveRecord::Schema.define(:version => 20130423211431) do
     t.boolean  "allDay"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "thesis_id"
   end
 
   create_table "meeting_notes", :force => true do |t|
+<<<<<<< HEAD
     t.string   "text"
     t.integer  "id_meeting"
+=======
+    t.string   "noteText"
+    t.integer  "meeting_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "path"
+  end
+
+  create_table "meeting_tasks", :force => true do |t|
+    t.string   "task"
+    t.integer  "meeting_id"
+    t.boolean  "done"
+    t.datetime "expireDate"
+>>>>>>> 67967040023fb5cb9aba485e52e373243ec07241
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "path"
@@ -62,6 +78,7 @@ ActiveRecord::Schema.define(:version => 20130423211431) do
     t.datetime "dateMeeting"
     t.string   "noteMeeting"
     t.integer  "thesis_id"
+    t.string   "path"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
@@ -112,8 +129,9 @@ ActiveRecord::Schema.define(:version => 20130423211431) do
   create_table "theses", :force => true do |t|
     t.string   "name"
     t.integer  "student_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "professor_id"
   end
 
 end

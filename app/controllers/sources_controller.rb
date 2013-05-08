@@ -27,41 +27,64 @@ class SourcesController < ApplicationController
   end
 
   def new
-    @source = Source.new
+    if is_student
+      @source = Source.new
+    else
+      not_type
+    end
   end
 
+
   def create
-    @source = Source.new
+    if is_student
+      @student = Student.find(session[:user_id])
+      @source = Source.new
 
-    @source.descripccion = params[:descripccion]
-    @source.name = params[:name]
-    @source.thesis_id = params[:thesis_id]
-    @source.category = params[:category]
+      @source.descripccion = params[:descripccion]
+      @source.name = params[:name]
+      @source.thesis_id = @student.thesis_id
+      @source.category = params[:category]
 
-    uploaded_io = params[:dataFile]
+      uploaded_io = params[:dataFile]
 
-    path = Rails.root.join('public', 'uploads', uploaded_io.original_filename);
-    File.open(path, 'w:ASCII-8BIT') do |file|
-      file.write(uploaded_io.read)
+      path = Rails.root.join('public', 'uploads', uploaded_io.original_filename);
+      File.open(path, 'w:ASCII-8BIT') do |file|
+        file.write(uploaded_io.read)
 
+      end
+      realPath = File.absolute_path(path).split("public/")[1]
+      @source.path= realPath
+
+      if @source.save
+        flash[:notice]="la fuente fue exitosamente creada"
+        redirect_to @source
+      else
+        render :action => 'new'
+      end
+    else
+      not_type
     end
-    realPath = File.absolute_path(path).split("public/")[1]
-    @source.path= realPath
-    @source.save
-    flash[:notice]="la fuente fue exitosamente creada"
-    redirect_to @source
   end
 
   def destroy
-    source = Source.find(params[:id])
-    source.destroy
+    if is_student
+      source = Source.find(params[:id])
+      source.destroy
 
-    if (source.destroyed?)
-      flash[:notice]="Fuente exitosamente eliminada";
+      if (source.destroyed?)
+        flash[:notice]="Fuente exitosamente eliminada";
+      else
+        flash[:error]="No se pudo eliminar la fuente"
+      end
+      redirect_to "/sources"
     else
-      flash[:error]="No se pudo eliminar la fuente"
+      not_type
     end
-    redirect_to "/sources"
+  end
+
+  def not_type
+    flash[:notice] = "You don't have the permissions required to do this action"
+    redirect_to '/sources'
   end
 
 end

@@ -7,7 +7,7 @@ gem 'rails', '>= 3.2.11'
 
 group :development, :test do
   gem 'sqlite3'
-  gem 'rspec-rails'
+
 end
 
 gem 'net-ldap'
@@ -41,6 +41,8 @@ group :test do
   gem 'database_cleaner'
 end
 
+gem 'jquery-rails'
+gem 'client_side_validations'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

@@ -1,3 +1,12 @@
 // Place all the styles related to the sources controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.field_with_errors {
+  display: inline-block;
+}
+
+.field_with_errors .message {
+  color: #dd0000;
+  padding-left: 100px;
+  font-size: 15px;
+}
