@@ -1,4 +1,4 @@
-<%= form_for(@thesis) do |f| %>
+<%= form_for @thesis do |f| %>
   <% if @thesis.errors.any? %>
     <div id="error_explanation">
       <h2>Oops! Something happened.</h2>
@@ -13,7 +13,19 @@
 
   <div class="field">
     <%= f.label :"please provide a valid name for the thesis process" %><br />
-    <%= f.text_field :name %>
+    <%= f.text_field :name %><br />
+
+    <% @arrayToShow=Array.new %>
+     <% @students=Student.all %>
+
+    <% @students.each do |student| %>
+        <% if student.thesis_id.nil?
+            @arrayToShow.push(student)
+        %>
+        <% end %>
+    <% end %>
+
+    <%= f.select :student_id, options_from_collection_for_select(@arrayToShow, :username, :name), multiple:true%>
   </div>
   <%= submit_tag "Create Thesis",:class=>"btn btn-primary"%>
 <% end %>

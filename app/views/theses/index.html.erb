@@ -17,18 +17,21 @@
       <%@theses.each do |thesis| %>
           <tr>
             <td width="15%"><%= thesis.name %></td>
-            <td width="15%"><%= thesis.student_id %></td>
+            <td width="15%">
+
+            <% @arrayStudents= Student.find_all_by_thesis_id(thesis.id)%>
+            <% @arrayStudents.each do |student|  %>
+                  <%=  student.name %>,
+            <% end%>
+
+            </td>
             <td width="15%"><%= link_to 'Show', thesis %></td>
             <td width="15%"><%= link_to 'Destroy', thesis, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
-
-
-
       <% end %>
     </table>
 <% end %>
 
 
 <br />
-
 <%= link_to 'Create a new Thesis Process', new_thesis_path, :class=>"btn btn-primary" %>

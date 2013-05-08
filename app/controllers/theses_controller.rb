@@ -47,6 +47,7 @@ class ThesesController < ApplicationController
   # POST /theses
   # POST /theses.json
   def create
+
     @thesis = Thesis.new(params[:thesis])
     respond_to do |format|
       if @thesis.save

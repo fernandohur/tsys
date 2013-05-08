@@ -15,13 +15,11 @@ class StudentsController < ApplicationController
   def create
 
     @search = Student.find_by_username(params[:username])
-
-      @student = Student.new
-      @student.name = params[:student_name]
-      @student.password = params[:password]
-      @student.thesis_id = 1
-      @student.username = params[:username]
-      response=@student.save
+    @student = Student.new
+    @student.name = params[:student_name]
+    @student.password = params[:password]
+    @student.username = params[:username]
+    response=@student.save
 
 
    if response==true
