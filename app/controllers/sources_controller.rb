@@ -17,11 +17,11 @@ class SourcesController < ApplicationController
     #Searchs only the sources of the student
 
     if sort_by
-      @sources = (Source.where("thesis_id LIKE " +(Student.find_by_username(session[:login]).thesis_id).to_s)).order(sort_by << " " << order)
+      @sources = @sources.order(sort_by << " " << order)
     elsif filter
-      @sources = Source.where("category LIKE '%#{filter}%' AND thesis_id LIKE " +(Student.find_by_username(session[:login]).thesis_id).to_s)
+      @sources = @sources.where("category LIKE '%#{filter}%'")
     else
-      @sources = Source.where("thesis_id LIKE " +(Student.find_by_username(session[:login]).thesis_id).to_s)
+      @sources = @sources
     end
   end
 
