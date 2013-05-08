@@ -5,7 +5,7 @@ class ActivitiesController < ApplicationController
     @able = session["user_type"].blank? ? false:true
     @activites
     if @able
-      @student = Student.find(params["student_id"])
+      @student = Student.find(session[:user_id])
       @thesis = @student.thesis
 
       @activities = @thesis.activities

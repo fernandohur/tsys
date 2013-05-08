@@ -2,13 +2,15 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @isProfessor = session[:user_type]=="Professor"
-    @products = Product.search(params[:search])
-    @search = params[:search]
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @products }
+    if is_prof
+      @products = Product.search(params[:search])
+      @search = params[:search]
+      respond_to do |format|
+        format.html # index.html.erb
+        format.json { render json: @products }
+      end
     end
+
 
   end
 

@@ -1,5 +1,5 @@
 class Thesis < ActiveRecord::Base
-  attr_accessible :name, :student_id, :professor_id
+  attr_protected
   validates :name, :uniqueness => true
   validates_length_of :name, :minimum => 5, :maximum => 15, :allow_blank => false
   validates_presence_of :student_id, :professor_id

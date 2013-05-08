@@ -9,7 +9,7 @@ class StudentsController < ApplicationController
   end
 
   def show
-    if session[:user_type]= 'professor'
+    if session[:user_type] == :professor
       @student=Student.find(params[:id])
       @professor=Professor.find_by_username(session[:username])
     else

@@ -1,4 +1,5 @@
 class Student < ActiveRecord::Base
+  attr_protected
   attr_accessible :thesis_id, :name, :username, :password
   validates_presence_of :name, :username, :password
   belongs_to :thesis

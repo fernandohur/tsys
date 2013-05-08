@@ -6,6 +6,10 @@
   <% @activities.each do |activity| %>
         <%= link_to activity.name,thesis_activity_path(activity), :class => "btn btn-primary btn-block" %><br>
   <% end %>
+    <% if Student.find_by_thesis_id(@thesis.id)!=nil %>
+
+    <%= link_to "Go to products", "/products" , :class => "btn btn-primary btn-block" %><br>
+      <% end %>
   </div>
 </div>
 

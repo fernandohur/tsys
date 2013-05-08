@@ -11,9 +11,9 @@
         <ul class="nav">
           <% if request.session[:user_id] %>
 
-                <% if session[:user_type] == :student.to_s %>
+                <% if session[:user_type] == :student%>
 
-                  <li <%= url_starts_with request,sources_path %> >
+                  <li <%= url_starts_with request, sources_path %> >
                     <%= link_to sources_path do %>
                         <i class="icon-book"></i> art&practice
                     <% end %>
@@ -31,7 +31,7 @@
                     <% end %>
                   </li>
 
-                  <li <%= url_starts_with request,meetings_path %>>
+                  <li <%= url_starts_with request, meetings_path %>>
                     <%= link_to meetings_path do%>
                         <i class="icon-calendar"></i> monitoring&tasks
                     <% end %>
@@ -43,7 +43,7 @@
 
                 <% else %>
 
-                  <li <%= url_starts_with request,theses_path %> >
+                  <li <%= url_starts_with request, theses_path %> >
                     <%= link_to theses_path do %>
                         <i class="icon-file"></i> thesis
                     <% end %>
@@ -53,14 +53,11 @@
                         <i class="icon-user"></i> students
                     <% end %>
                   </li>
-                  <li <%= url_starts_with request,meetings_path %>>
+                  <li <%= url_starts_with request, meetings_path %>>
                     <%= link_to events_path do%>
                         <i class="icon-calendar"></i> meetings
                     <% end %>
                   </li>
-                  <%= link_to professor_path(session[:user_id]) do%>
-                      Hello, <%= Professor.find(session[:user_id]).nombre %>
-                  <% end %>
               <% end %>
 
 
@@ -101,14 +98,7 @@
           <%= label_tag :password %>
           <%= password_field_tag :password %>
         </p>
-<<<<<<< HEAD
         <p><small> student <%= radio_button_tag(:user_type, :student) %></small><small> professor <%= radio_button_tag(:user_type, :professor) %> </small></p>
-=======
-        <p>
-          <%= radio_button_tag(:user_type, "student") %> Soy estudiante.
-          <%= radio_button_tag(:user_type, "professor" ) %> Soy profesor.
-        </p>
->>>>>>> Jose
         <%= submit_tag "login" ,:class=> "btn btn-primary" %>
     <% end %>
   </div>

@@ -1,10 +1,6 @@
 Tsys::Application.routes.draw do
 
-<<<<<<< HEAD
   get "professors/me"
-=======
-
->>>>>>> Jose
 
   #Sessions
   match '/login' => 'sessions#login' , :as=> :post
@@ -20,12 +16,12 @@ Tsys::Application.routes.draw do
   #Events
   resources :events
 
+  resources :students
+
   #Pooducts
   resources :products
-
   #Theses
   resources :theses do
-    resources :students
     resources :activities
   end
   post "/theses/:thesis_id/activities/:id(.:format)" => "activities#show"

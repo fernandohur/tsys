@@ -11,11 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(:version => 20130507234125) do
-=======
 ActiveRecord::Schema.define(:version => 20130508004002) do
->>>>>>> Jose
 
   create_table "MeetingTask", :force => true do |t|
     t.boolean  "done"
@@ -65,17 +61,27 @@ ActiveRecord::Schema.define(:version => 20130508004002) do
   end
 
   create_table "meeting_notes", :force => true do |t|
-    t.string   "text"
-    t.integer  "id_meeting"
+    t.string   "noteText"
+    t.integer  "meeting_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "path"
+  end
+
+  create_table "meeting_tasks", :force => true do |t|
+    t.string   "task"
+    t.integer  "meeting_id"
+    t.boolean  "done"
+    t.datetime "expireDate"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "meetings", :force => true do |t|
     t.datetime "dateMeeting"
     t.string   "noteMeeting"
     t.integer  "thesis_id"
+    t.string   "path"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end

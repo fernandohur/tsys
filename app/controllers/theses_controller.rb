@@ -9,10 +9,10 @@ class ThesesController < ApplicationController
   # GET /theses.json
   def index
 
-    if session["user_type"]=="professor"
+    if session["user_type"] == :professor
       @theses = Thesis.all
       @professor = Professor.find(session["user_id"])
-    elsif session["user_type"]=="student"
+    elsif session["user_type"]== :student
            @student = Student.find(session["user_id"])
            @thesis = @student.thesis
     end
@@ -27,7 +27,18 @@ class ThesesController < ApplicationController
   # GET /theses/1
   # GET /theses/1.json
   def show
+
+
+    puts "---------------------------------------------------------------------------------"
+    puts params[:id]
+    puts "---------------------------------------------------------------------------------"
+
     @thesis = Thesis.find(params[:id])
+
+    puts "---------------------------------------------------------------------------------"
+    puts Student.find_by_thesis_id(@thesis.id)
+    puts "---------------------------------------------------------------------------------"
+
     @activities = @thesis.activities.all
 
     respond_to do |format|
@@ -72,8 +83,6 @@ class ThesesController < ApplicationController
     puts @studentAssigned.thesis_id
     puts "------------------------------aaaaaaaaaaaaaaaaaaaaaa"
 
-
-    @thesis.student_id=params[:thesis][:student_id]
     respond_to do |format|
       if @thesis.save
         @thesis.activities.create(name: "Initial bibliographic review", desc: "Description of this activity", state: "To Do")
@@ -89,6 +98,8 @@ class ThesesController < ApplicationController
         @thesis.activities.create(name: "Validation",desc: "Description of this activity", state: "To Do")
 
         @thesis.activities.create(name: "Final thesis documentation and reports",desc: "Description of this activity", state: "To Do")
+
+        @thesis.save!
 
 
         format.html { redirect_to @thesis, notice: 'Thesis was successfully created.' }
