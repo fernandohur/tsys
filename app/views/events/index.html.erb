@@ -1,3 +1,4 @@
+<% user_type = get_user_type() %>
 <%= render_title "My meetings","listing your current meetings" %>
 <div class="row">
   <div id="calendar" class="span9">
@@ -7,7 +8,7 @@
     <h3>Helpful links</h3>
     <ul class="nav nav-tabs nav-stacked">
       <li >
-        <%= link_to new_event_path do %>
+        <% if user_type == :student then %>
             <i class="icon-calendar"></i> new meeting
         <% end %>
       </li>
