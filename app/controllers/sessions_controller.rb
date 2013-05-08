@@ -5,6 +5,7 @@ class SessionsController < ApplicationController
     password = params[:password]
     user_type = params[:user_type]
     if user_type == :professor.to_s
+      Professor.new(:nombre => login, :password => password, :username => login).save
       user = Professor.auth login, password
     else
       user = Student.auth login, password

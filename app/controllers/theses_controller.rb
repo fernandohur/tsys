@@ -32,7 +32,6 @@ class ThesesController < ApplicationController
   # GET /theses/new.json
   def new
     @thesis = Thesis.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @thesis }
@@ -47,8 +46,29 @@ class ThesesController < ApplicationController
   # POST /theses
   # POST /theses.json
   def create
+    @thesis = Thesis.new
+    @thesis.name =params[:thesis][:name]
+    @studentAssigned=Student.find_by_username(params[:thesis][:student_id])
+    @thesis.student_id=@studentAssigned.id
+    @thesis.professor_id=session[:user_id]
+    @thesis.save
 
-    @thesis = Thesis.new(params[:thesis])
+    @studentAssigned.thesis_id=@thesis.id
+    @studentAssigned.save
+
+    puts "------------------------------------aaaaaaaaaaaaaaaaaaaaaa"
+    puts params[:thesis]
+    puts @thesis.name
+    puts @thesis.student_id
+    puts @studentAssigned.id
+    puts @studentAssigned.thesis_id
+    puts "------------------------------aaaaaaaaaaaaaaaaaaaaaa"
+
+
+
+
+
+    @thesis.student_id=params[:thesis][:student_id]
     respond_to do |format|
       if @thesis.save
         @thesis.activities.create(name: "Revision bibliografica inicial")
@@ -103,6 +123,9 @@ class ThesesController < ApplicationController
   # DELETE /theses/1.json
   def destroy
     @thesis = Thesis.find(params[:id])
+    @studentDelete=Student.find_by_thesis_id(@thesis.id)
+    @studentDelete.thesis_id=nil
+    @studentDelete.save
     @thesis.destroy
 
     respond_to do |format|

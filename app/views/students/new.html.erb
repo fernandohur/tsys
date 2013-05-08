@@ -1,5 +1,11 @@
 <h1>Registering a new student</h1>
 
+
+<% if session[:user_type]== :student.to_s %>
+    <b> Wow, you cannot access this path with your current credentials</b>
+
+    <% else %>
+
 <%= form_tag :action => 'create' do%>
     <p/>
     <font size="3" color="red"> <p id="notice"><% notice %></p></font>
@@ -14,3 +20,4 @@
     <br/>
     <%= submit_tag "Register", :id => "register", :class=>"btn btn-primary"%>
 <% end%>
+<% end %>

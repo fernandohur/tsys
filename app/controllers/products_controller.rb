@@ -2,12 +2,22 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.where("student_id LIKE " +(Student.find_by_username(session[:login]).id).to_s)
-    @search = params[:search]
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @products }
+
+    if session[:user_type]== 'student'
+      @products = Product.find_all_by_student_id(session[:user_id])
+      @search = params[:search]
+      respond_to do |format|
+        format.html # index.html.erb
+        format.json { render json: @products }
+      end
+
+      #ARREGLAR!!!!
+    else
+      @student=Student.find_by_username("adriana")
+      @products = Product.find_all_by_student_id(Student.find_by_username("adriana").id)
+      @search = params[:search]
     end
+
   end
 
   # GET /products/1

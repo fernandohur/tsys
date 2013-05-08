@@ -9,11 +9,16 @@ class StudentsController < ApplicationController
   end
 
   def show
-    @student=Student.find(session[:user_id])
+
+    if session[:user_type]= 'professor'
+      @student=Student.find(params[:id])
+      @professor=Professor.find_by_username(session[:username])
+    else
+      @student=Student.find(session[:user_id])
+    end
   end
 
   def create
-
     @search = Student.find_by_username(params[:username])
     @student = Student.new
     @student.name = params[:student_name]

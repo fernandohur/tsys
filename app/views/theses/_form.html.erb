@@ -13,7 +13,8 @@
 
   <div class="field">
     <%= f.label :"please provide a valid name for the new thesis" %><br />
-    <%= f.text_field :name %><br />
+    <p>Thesis' name <%= f.text_field :name %></p>
+    <p>Author
 
     <% @arrayToShow=Array.new %>
      <% @students=Student.all %>
@@ -25,7 +26,8 @@
         <% end %>
     <% end %>
 
-    <%= f.select :student_id, options_from_collection_for_select(@arrayToShow, :username, :name), multiple:true%>
+    <%= f.select :student_id, options_from_collection_for_select(@arrayToShow, :username,:username), require:true%>
+     </p>
   </div>
   <%= submit_tag "Create Thesis",:class=>"btn btn-primary"%>
 <% end %>
