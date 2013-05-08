@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130331213959) do
+ActiveRecord::Schema.define(:version => 20130508004002) do
 
   create_table "MeetingTask", :force => true do |t|
     t.boolean  "done"
@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(:version => 20130331213959) do
     t.integer  "thesis_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "state"
+    t.string   "desc"
   end
 
   create_table "anotations", :force => true do |t|
@@ -34,6 +36,13 @@ ActiveRecord::Schema.define(:version => 20130331213959) do
     t.string   "texto"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "comments", :force => true do |t|
+    t.string   "body"
+    t.integer  "activity_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "data_files", :force => true do |t|

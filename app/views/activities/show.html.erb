@@ -1,0 +1,52 @@
+<%= render_title @activity.name, " " %>
+<div class="container">
+    <h3>Description:</h3><br>
+    <div class="span5"><%= @activity.desc %></div><br><br>
+
+      <h3>Estado:</h3>
+        <% if @activity.state == "To Do" %>
+            <div class="label label-inverse"><%= @activity.state %></div>
+      <% elsif @activity.state=="Doing" %>
+            <div class="label label-info"><%= @activity.state %></div>
+      <% else %>
+           <div class="label label-success"><%= @activity.state %></div>
+      <% end %>
+  <br><br>
+        <% if @isStudent && @isMe%>
+            <%= form_tag(controller: "activities", action: "show", method: "POST") do |f| %>
+                change state to: <%= select_tag id="state", options_for_select([['To Do', "To Do"], ['Doing', "Doing"],
+                                                                             ['Done',"Done"]],:selected => @activity.state)%>
+                <div class="actions">
+                  <%= submit_tag "Actualizar", :class=>"btn btn-primary" %>
+                </div>
+                <hr>
+
+                <div class="span10">
+                  <h3>Comentarios</h3>
+                  <div class="span10 well">
+                  <% if @comments.count == 0 %>
+                        <div class="text-center"><strong>This activity does not have any comments yet!</strong></div>
+                  <% else %>
+                      <% @comments.each do |comment| %>
+                          <div class="span9 well">
+                            <strong><%= comment.created_at %></strong> por <strong><%= @studentName %></strong>
+                            <p><%= comment.body %></p>
+                          </div>
+                      <% end %>
+                  <% end %>
+                  </div>
+                </div>
+                <div class="span10">
+                <h3>Agregar comentario</h3>
+                    <div class="span5 offset3 well well-small">
+                      <textarea id="bodyA" name="bodyA" rows="5" style="width:95%" maxlength="350">Escribe aca un comentario para esta actividad.(max 350 caracteres)</textarea>
+                      <br><div class="actions">
+                      <%= submit_tag "Agregar", :class=>"btn btn-primary" %>
+                        </div>
+                    </div>
+                </div>
+
+                </div>
+            <% end %>
+        <% end %>
+</div>

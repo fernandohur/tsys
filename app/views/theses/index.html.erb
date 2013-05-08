@@ -1,34 +1,35 @@
-<%= render_title "Theses", "these are the theses you are managing, professor"%>
+<% if @professor.blank? && @student.blank? %>
+    <div class="container">
+      <div class="span7 offset2 well">
+        <strong>ACCESS DENIED.</strong> Sorry! You must be logged in to access your activities.
+      </div>
+    </div>
+    <% else
+        if !@student.blank? %>
+            <%= render_title "Thesis", "This is your thesis process" %>
+            <div class="container">
+              <div class="span6 offset2 well">
+                <%= link_to @thesis.name, @thesis, :class => "btn btn-primary btn-block" %><br>
+              </div>
+            </div>
 
-
-<% if @theses.count<1   %>
-    <p>Wow. Scratch that. You are not managing any thesis at the moment professor.</p>
-<% else%>
-
-    <table>
-
-      <tr>
-        <td><b>Name</b></td>
-        <td><b>Author(s)</b></td>
-        <td><b>Show</b></td>
-        <td><b>Destroy</b></td>
-      </tr>
-
-      <%@theses.each do |thesis| %>
-          <tr>
-            <td width="15%"><%= thesis.name %></td>
-            <td width="15%"><%= thesis.student_id %></td>
-            <td width="15%"><%= link_to 'Show', thesis %></td>
-            <td width="15%"><%= link_to 'Destroy', thesis, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </tr>
-
-
-
-      <% end %>
-    </table>
+        <%else %>
+          <%= render_title "Theses", "These are the theses you are managing professor" %>
+              <%if @theses.count<1   %>
+                <p>Wow. Scratch that. You are not managing any thesis at the moment professor.</p>
+             <% else %>
+                  <div class="container">
+                  <% @theses.each do |thesis| %>
+                        <div class="span6 offset2 well">
+                          <%= link_to thesis.name, thesis, :class => "btn btn-primary btn-block" %><br>
+                        </div>
+                  <% end %>
+                  </div>
+            <% end%>
+               <%= link_to 'Create a new Thesis Process', new_thesis_path, :class=>"btn btn-primary" %>
+    <%end %>
 <% end %>
 
 
 <br />
 
-<%= link_to 'Create a new Thesis Process', new_thesis_path, :class=>"btn btn-primary" %>
