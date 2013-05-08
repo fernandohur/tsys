@@ -11,7 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20130423211431) do
+=======
+ActiveRecord::Schema.define(:version => 20130507234125) do
+>>>>>>> origin/fer-dux
 
   create_table "MeetingTask", :force => true do |t|
     t.boolean  "done"
@@ -48,6 +52,7 @@ ActiveRecord::Schema.define(:version => 20130423211431) do
     t.boolean  "allDay"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "thesis_id"
   end
 
   create_table "meeting_notes", :force => true do |t|
@@ -122,8 +127,9 @@ ActiveRecord::Schema.define(:version => 20130423211431) do
   create_table "theses", :force => true do |t|
     t.string   "name"
     t.integer  "student_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "professor_id"
   end
 
 end

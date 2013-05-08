@@ -1,37 +1,37 @@
-class ProfessorTest < ActiveSupport::TestCase
+class StudentTest < ActiveSupport::TestCase
 
   test "the truth" do
     assert true
   end
 
-  test " auth professor with correct credentials should return Professor" do
-    Professor.delete_all
+  test 'auth student with correct credentials should return Professor' do
+    Student.delete_all
     password = 'asd'
     username = 'dfgsdg'
     name = 'lkan5234'
-    Professor.new(:nombre=>name,:password=>password,:username=>username)
+    Student.new(:name=>name,:password=>password,:username=>username)
 
 
-    professor = Professor.auth(username, password)
+    student = Student.auth(username, password)
 
-    assert professor.name == name
-    assert professor.password == password
-    assert professor.username == username
+    assert student.name == name
+    assert student.password == password
+    assert student.username == username
 
   end
 
-  test 'auth professor with incorrect credentials returns null' do
+  test 'auth student with incorrect credentials returns null' do
 
-    Professor.delete_all
+    Student.delete_all
     password = 'asd'
     username = 'dfgsdg'
     name = 'lkan5234'
-    Professor.new(:nombre=>name,:password=>password<<'1',:username=>username)
+    Student.new(:nombre=>name,:password=>password<<'1',:username=>username)
 
 
-    professor = Professor.auth(username, password)
+    student = Student.auth(username, password)
 
-    assert professor==nil
+    assert student==nil
 
   end
 

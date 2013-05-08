@@ -5,6 +5,13 @@ class Thesis < ActiveRecord::Base
   has_many :sources
   has_many :activities
   has_many :meetings
+  has_many :events
   belongs_to :student
+  belongs_to :professor
+
+
+  def title
+    name
+  end
 
 end

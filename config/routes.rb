@@ -1,8 +1,17 @@
 Tsys::Application.routes.draw do
 
+  get "professors/me"
+
   #Sessions
   match '/login' => 'sessions#login' , :as=> :post
   match '/logout' => 'sessions#logout'
+
+
+  resources :professor do
+    collection do
+       get 'me'
+    end
+  end
 
   #Events
   resources :events

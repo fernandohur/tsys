@@ -19,10 +19,18 @@ class SourcesController < ApplicationController
   end
 
   def new
+<<<<<<< HEAD
     if session[:user_type]=="student"
       @source = Source.new
     else
       not_type
+=======
+    if session[:user_type] == :student
+      @source = Source.new
+    else
+      flash[:notice]="professors can't add sources, sorry :("
+      redirect_to '/'
+>>>>>>> origin/fer-dux
     end
   end
 
